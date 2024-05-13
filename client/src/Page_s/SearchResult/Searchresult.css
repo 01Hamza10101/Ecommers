@@ -1,0 +1,94 @@
+.search-result{
+    width: 100%;
+    height: 100%;
+}
+.search-result > h2{
+    width: 100%;
+    font-weight: 500;
+    text-align: center;
+}
+.search-result .serach-card{
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: INTER, sans-serif !important;
+}
+.search-result .serach-inner {
+    display: flex;
+    height: 100%;
+}
+.search-result .serach-inner input {
+    padding: 8px;
+    width: 330px;
+    margin-right: 2px;
+}
+.search-result .serach-inner button {
+    width: 50px;
+    height: 100%;
+    background: #000;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.search-result .serach-inner button:hover {
+    background-color: #403e3e;
+}
+.search-result .serach-inner button img {
+    filter: brightness(0) invert(1);
+    height: 70%;
+}
+.Search-body{
+    width: 100%;
+    height: 100%;
+}
+.Search-body .search-product-card{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 5px;
+    padding: 12px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+.Search-body .search-product-card img{
+    width: 100px;
+}
+.Search-body .search-product-card h3 span{
+    font-size: 12px;
+    text-decoration: line-through;
+}
+.Search-body .search-product-card h2:hover{
+    text-decoration:underline;
+}
+.search-product-card .rating-colletion{
+    border-radius: 30px;
+    display: flex;
+    z-index: 1;
+    width: fit-content;
+    height: 15px;
+    /* margin-top: -40px; */
+    /* margin-left:  55%; */
+    display: flex;
+    /* justify-content: space-around; */
+    align-items: center;
+    position: relative;
+    padding: 5px;
+    border: 1px solid rgba(2, 68, 85, .4);
+    background-color: #679f37d6;
+    color: #fff;
+}
+.search-product-card .rating-colletion img{
+    width: 20px;
+    height: 20px;
+    filter: brightness(0) invert(1);
+}
+.search-product-card .rating-colletion  span{
+    padding: 0 5px;
+}
+
+.search-product-card .rating-colletion .star-rating{
+    padding: 0 5px;
+    border-right:2px solid white;
+}

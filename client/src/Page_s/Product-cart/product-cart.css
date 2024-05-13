@@ -1,0 +1,14 @@
+
+.product-cart{
+    width: 100%;
+}
+.product-cart > div:nth-child(1){
+    display: flex;
+    margin-top:20px;
+    width: 100%;
+    justify-content: space-around;
+}
+.product-cart > div:nth-child(1) h3{
+    margin: 0;
+    padding: 0;
+}

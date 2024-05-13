@@ -1,0 +1,402 @@
+.add-product{
+    width: 100%;
+    height: 100%;
+}
+.add-product > div{
+    display: flex;
+}
+.add-product > div:nth-child(2){
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+.add-product .productleft{
+    width: 40vw;
+    margin-right: 10px;
+}
+.add-product .product-img{
+   height: 400px;
+   display: flex;
+   margin-top: 24px ;
+   margin-left: 12px ;
+}
+.add-product .product-img div:nth-child(1){
+    width: 105px;
+    margin: 5px;
+}
+.add-product .product-img div:nth-child(1) img{
+    width: 100px;
+}
+.add-product .product-img div:nth-child(2){
+    height: 100%;
+    overflow: scroll;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.add-product .product-img div:nth-child(2)::-webkit-scrollbar{
+  display: none;
+}
+.add-product .productleft .buttons{
+    width: 100%;
+    margin-top: 5px;
+}
+.add-product .productleft .product-img div:nth-child(2) img {
+    height:100%;
+    margin-top: 5px;
+}
+.add-product .productleft .buttons button{
+    height: 42px;
+    width: 260px;
+    margin-top: 5px;
+    padding: 8px;
+    color: white;
+    background: #49a0e3;
+    border: none;
+    border-radius: 2px;
+    font-weight: 600;
+}
+.add-product .productleft .buttons button:hover{
+    background: #6cb5ec;
+    border: none;
+    border-radius: 2px;
+    font-weight: 600;
+}
+.add-product .productleft .buttons{
+    display: flex;
+    justify-content:center;
+    gap: 6px;
+}
+.add-product .productright{
+    width: 100%;
+    padding: 8px;
+    /* height: 512px; */
+    /* overflow-y: scroll; */
+}
+
+.add-product .productright .product-details .title{
+    width: 50vw;
+    font-size: medium;
+    resize: none;
+    overflow-y:hidden;
+    padding: 12px;
+    margin: 12px 0;
+}
+.add-product .productright .product-details div .price{
+    width: 8vw;
+    font-size: medium;
+    resize: none;
+    overflow-y:hidden;
+    padding: 6px;
+    margin: 12px 5px;
+}
+
+.add-product  .productright::-webkit-scrollbar {
+    display: none;
+}
+/* .add-product img{
+    width: 100%;
+} */
+.add-product  .cart-2{
+    padding: 5px;
+}
+.add-product  h3{
+    padding: 0;
+    margin: 0;
+}
+
+.add-product .rating-colletion{
+    border-radius: 30px;
+    z-index: 1;
+    width: fit-content;
+    height: 15px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 5px;
+    border: 2px solid rgba(2, 68, 85, .4);
+    background-color: #679f37d6;
+    color: #fff;
+}
+.add-product .rating-colletion img{
+    width: 20px;
+    height: 20px;
+    filter: brightness(0) invert(1);
+}
+.add-product .rating-colletion  span{
+    padding: 0 5px;
+}
+
+.add-product .rating-colletion .star-rating{
+    padding: 0 5px;
+    border-right:2px solid white;
+}
+.add-product h2 span {
+    font-size: small;
+    text-decoration: line-through;
+    color: #878787;
+}
+.add-product .islocationAvl{
+    display: flex;
+    margin: 5px 0;
+    height: 300px;
+}
+
+.add-product .islocationAvl div img{
+    height: 30px;
+}
+.add-product .islocationAvl .div-pincodes input{
+    margin: 0  10px;
+    padding: 5px;
+}
+
+.add-product h3{
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    color: #878787;
+}
+.add-product .islocationAvl > div:first-child {
+    display: flex;
+    border: 2px solid black;
+    border-radius: 3px;
+    margin-left: 40px;
+}
+.add-product .islocationAvl .div-pincodes{
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid black;
+    border-radius: 1px;
+    padding: 6px;
+    width: 40vw;
+}
+.add-product .islocationAvl .div-pincodes div{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    border: 1px solid black;
+    border-radius: 1px;
+    padding: 6px;
+    margin: 5px 5px;
+}
+.add-product .islocationAvl .div-pincodes div span{
+    position: absolute;
+    margin-top: -31px;
+    margin-left: 56px;
+    background-color: #fff;
+    color:blue;
+    rotate: 60deg;
+    cursor:pointer;
+}
+.add-product .islocationAvl .div-pincodes div span:hover{
+    display: flex;
+    color: red;
+}
+
+.add-product .islocationAvl div input{
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+.add-product .islocationAvl button{
+    border: none;
+    background-color: transparent;
+    outline: none;
+    font-weight: 600;
+    background: #49a0e3;
+    color: white;
+    letter-spacing: 2px;
+}
+
+.add-product .islocationAvl button:hover{
+    background: #72b9ef;
+    color: white;
+}
+.add-product .product-details h6{
+    padding-left: 108px;
+    margin: 5px;
+    color: red;
+}
+
+.add-product .product-details .quantity {
+    display: flex;
+}
+.add-product .product-details .quantity h3{
+    margin-right: 35px;
+}
+.add-product .product-details .quantity div{
+    width: 100%;
+    display: flex;
+    gap: 5px;
+}
+.add-product .product-details .quantity > div > div{
+    width: 100%;
+    border: 1px solid #000000;
+    width: fit-content;
+    /* padding: 5px; */
+    border-radius: 2px;
+    color: #00060a;
+}
+.add-product .product-details .quantity > div > div > div{
+    width: 100%; 
+    border: 1px solid #000000;
+    width: fit-content;
+    padding: 5px;
+    margin: 8px;
+    border-radius: 2px;
+    color: #00060a;
+}
+.add-product .product-details .quantity div div span{
+    color: red;
+    position: absolute;
+    margin-top: -12px;
+    margin-left: 37px;
+    background-color: #fff;
+    color:blue;
+    rotate: 180deg;
+    cursor:pointer;
+}
+.add-product .product-details .quantity > div  div:hover{
+    border: 1px solid #0069ba;
+    color: #0064b1;
+}
+.add-product .product-details .quantity div div span:hover{
+    color: red;
+}
+.add-product .product-details .quantity div input, .add-product .product-details .highlights > div input{
+    padding: 5px;
+}
+.add-product .product-details .quantity div .enter-btn{
+    background-color: transparent;
+    border: 1px solid black;
+   height: 100%;
+   margin-left: 5px;
+}
+.add-product .product-details .Packof{
+    display: flex;
+    margin-top: 12px;
+}
+.add-product .product-details .Packof > div{
+    display: flex;
+    justify-content: center;
+    margin-left: 45px;
+    width: 100px;
+    height: 40px;
+    gap: 12px;
+    border: 2px solid black;
+    border-radius: 3px;
+}
+.add-product .product-details .Packof > div input{
+    width: 20px;
+    text-align: center;
+    font-size: large;
+    border: none;
+    outline: none;
+}
+.add-product .product-details .Packof > div >div{
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+}
+.add-product .product-details .Packof > div >div:hover{
+    user-select: none;
+    color: #0064b1;
+}
+.add-product .product-details .highlights {
+    display: flex;
+    margin-top: 12px;
+}
+.add-product .product-details .highlights > h3{
+    display: flex;
+    align-items: flex-start;
+    margin-top: 12px;
+}
+.add-product .product-details .highlights > div{
+    font-weight: 600;
+    margin-left: 20px;
+}
+.add-product .product-details .highlights div li{
+    font-weight: 500;
+    margin-top:6px;
+    color: #212121;
+}
+.add-product .product-details .highlights div li::marker{
+    color: #878787;
+}
+.add-product .product-details .highlights > div .enter-btn{
+    background-color: transparent;
+    border: 1px solid black;
+    height: 88%;
+    margin-left: 5px;
+} 
+.add-product .product-details .highlights > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} 
+
+.add-product .product-details .productdes,
+.add-product .product-details .productsellerdes
+{
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    padding: 5px;
+    margin-top: 12px;
+}
+.add-product .product-details .productdes > div,
+.add-product .product-details .productsellerdes > div{
+    display: flex;
+    justify-content: space-between;
+}
+.add-product .product-details .productdes > div img,
+.add-product .product-details .productsellerdes > div img{
+    width: 20px;
+}
+.add-product .product-details .productdes div:nth-child(2){
+    display: flex;
+    flex-direction: column;
+    line-height: 25px;
+    height:100%;
+    overflow: hidden;
+}
+.add-product .product-details .productsellerdes div:nth-child(2){
+    display: flex;
+    flex-direction: column;
+    line-height: 25px;
+    height: 0px;
+    overflow: hidden;
+}
+
+.add-product .product-details .productdes > div .input{
+    height: 50px;
+    width: 95%;
+    margin:5px 0;
+    padding: 10px;
+    resize: none;
+}
+.add-product .product-details .productdes > div > button{
+    height: 25px;
+    width: 50px;
+    border-radius: 4px;
+    font-weight: 600;
+    background: transparent;
+}
+.add-product .product-details .productdes > div > button:hover{
+    height: 25px;
+    width: 50px;
+    border-radius: 4px;
+    font-weight: 600;
+    color: #fff;
+    background: black;
+}
+.add-product .product-details .productsellerdes > div .input{
+    height: 50px;
+    width: 95%;
+    margin:5px 0;
+    padding: 10px;
+    resize: none;
+}

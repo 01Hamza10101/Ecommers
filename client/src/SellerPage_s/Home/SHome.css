@@ -1,0 +1,35 @@
+
+.s-home-container .Total-data{
+    width: 50%;
+    display: flex;
+    margin: auto;
+    justify-content: space-between;
+    border: 1px solid #878787;
+    height: 60px;
+}
+.s-home-container .Total-data div{
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    padding: 8px;
+    flex-direction: column;
+    width: 100%;
+    border-right: 1px solid #878787;
+}
+
+.s-home-container .Total-data div:last-child{
+    border-right: 0;
+}
+.s-home-container .Total-data div h4{
+    margin: 0;
+    padding: 5px 0;
+    font-weight: 500;
+    letter-spacing: 1px;
+    font-family:"Roboto", "Arial", sans-serif;
+}
+.s-home-container .Total-data div h3{
+    margin: 0;
+    font-weight: 500;
+    font-size: 15px;
+    font-family:"Roboto", "Arial", sans-serif;
+}

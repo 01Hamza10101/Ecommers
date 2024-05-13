@@ -1,0 +1,149 @@
+.NavBar{
+    width: 100%;
+    height: 64px;
+    background-color: #49a0e3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    z-index: 100;
+}
+
+.NavBar img{
+    width: 200px;
+    margin-left: 12px;
+}
+
+.NavBar .div-2{
+    width: 300px;
+    height: 100%;
+    margin-right: 12px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.NavBar .search-img,
+.NavBar .cart-img,
+.NavBar .profile-img,
+.NavBar .menu-img{
+    filter: brightness(0) invert(1);
+    width:25px;
+    height:25px;
+    cursor: pointer;
+}
+
+
+.Outlet-child{
+    padding-top: 65px;
+}
+.div-footer{
+    width: 100%;
+    height: 700px;
+    background: #49a0e3;
+    display: flex;
+}
+.div-footer {
+    width: 100%;
+    height: 700px;
+    background: #49a0e3;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+}
+.div-footer > div.upper{
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    gap: 90px;
+    margin-top: -35px;
+}
+.div-footer > div.upper > div{
+    width: 150px;
+    height: 100%;
+    background: white;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #00AEEF;
+}
+.div-footer > div.upper > div > img{
+    height:50%;
+}
+.div-footer > div.upper > div > p{
+    padding: 0;
+    margin: 8px 0px;
+    font-size: 12px;
+}
+
+.div-footer .div-summary{
+    margin-top: 20px;
+    letter-spacing: 0;
+    font-size: 1rem;
+    padding: 12px 0;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    padding: 15px;
+}
+.div-footer .div-company > div,
+.div-footer .div-support > div,
+.div-footer .div-getintouch > div
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+}
+.div-footer .div-company > div a,
+.div-footer .div-support > div a{
+    font-size: medium;
+    font-weight: 500;
+    color: white;
+    text-decoration: none;
+    padding: 5px;
+}
+.div-footer .div-getintouch > div {
+    font-size: 20px;
+    font-weight: 500;
+}
+.div-footer .div-getintouch > div > p{
+    margin: 0;
+    font-size: medium;
+}
+.div-footer .div-getintouch > div > h5{
+    margin:7px 0;
+}
+.div-summary button{
+    background: transparent;
+    border: none;
+}
+.div-footer .div-getintouch .social-media{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.div-footer .div-getintouch .social-media img{
+    width: 30px;
+    filter: brightness(0) invert(1);
+}
+
+.div-footer .div-getintouch .social-media img[alt="imglingk"]{
+    width: 25px;
+    margin-top: 2px;
+    filter: brightness(0) invert(1);
+}
+.div-footer .myfitness{
+    width: 100%;
+    text-align: center;
+}
