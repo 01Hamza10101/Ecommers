@@ -92,12 +92,14 @@ admin.initializeApp({
 });
 
 // Get a reference to the storage service, which is used to create references in your storage bucket
+export {admin};
 const bucket = admin.storage().bucket();
 
+let fileStream ;
 const filePath = "./img.jpg";
-const fileName = "ayimg.jpg";
+const fileName = "1img.jpg";
 
-const getFileSize = async (filePath) => {
+export const getFileSize = async (filePath) => {
   try {
       const stats = await fs.promises.stat(filePath);
       return stats.size;
@@ -107,6 +109,14 @@ const getFileSize = async (filePath) => {
   }
 };
 // Function to upload image to Firebase Storage
+function cancelUpload() {
+    if (fileStream) {
+        fileStream.destroy(); // Close the file stream
+        console.log('Upload cancelled.');
+    } else {
+        console.log('No upload in progress.');
+    }
+}
 async function uploadImage() {
     try {
         // Check if the file already exists in the bucket
@@ -116,12 +126,12 @@ async function uploadImage() {
             console.log('File already exists in GCS');
         } else {
             // Create a read stream to the local file
-            const fileStream = fs.createReadStream(filePath);
+            fileStream = fs.createReadStream(filePath);
 
             // Create a write stream to the destination file in Firebase Storage
             const uploadStream = bucket.file(fileName).createWriteStream({
                 metadata: {
-                    contentType: 'image/jpeg' // Adjust based on your image type
+                    contentType: 'image/jpg' // Adjust based on your image type
                 }
             });
 
@@ -129,17 +139,6 @@ async function uploadImage() {
             uploadStream.on('error', (err) => {
                 console.error('Error uploading file:', err);
             });
-          //   let filebites = "";
-          //   const fileSize = await getFileSize(filePath);
-          //   fileStream.on('data', (chunk) => {
-          //     console.log(chunk);
-          //     let uploadedBytes = (filebites + chunk.length);
-          //     filebites = uploadedBytes;
-          //     console.log(uploadedBytes);
-          //     console.log(fileSize);
-          //     const progress = (uploadedBytes / fileSize) * 100;
-          //     console.log(`Upload is ${progress.toFixed(2)}% done`);
-          // });
           
           let fileBytes = 0;
           const fileSize = await getFileSize(filePath);
@@ -149,6 +148,9 @@ async function uploadImage() {
                     console.log(fileBytes);
                     console.log(fileSize);
                     const progress = (fileBytes / fileSize) * 100;
+                    // if(progress.toFixed(2) > 50){
+                    //     cancelUpload();
+                    // }
                     console.log(`Upload is ${progress.toFixed(2)}% done`);
           });
           
@@ -166,7 +168,8 @@ async function uploadImage() {
 }
 
 // Example usage:
-uploadImage();
+// uploadImage();
+
 
 // Export the function for external usage
 export default uploadImage;

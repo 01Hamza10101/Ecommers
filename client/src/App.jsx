@@ -9,6 +9,7 @@ import ProfileForm from './Page\_s/Profile/profile.jsx';
 import FogotPasswordform from './Page\_s/Forgot-password/forgot-password.jsx';
 import ProductPage from './Page\_s/Product/Product.jsx';
 import Productcart from './Page\_s/Product-cart/product-cart.jsx';
+import Test from './Page\_s/test.jsx';
 
 // Seller Home page
 import SHome from './SellerPage\_s/Home/SHome.jsx';
@@ -27,7 +28,9 @@ function App() {
             <Route path='profile' element={<ProfileForm/>}/>
             <Route path='forgot-password' element={<FogotPasswordform/>}/>
             <Route path='product/:productid' element={<ProductPage/>}/>
-            <Route path='cart' element={<Productcart/>}/>            
+            <Route path='cart' element={<Productcart/>}/> 
+            <Route path='test' element={<Test/>}/> 
+
           </Route>
           <Route  path="/seller" element={<Layout seller='true' />}>
             <Route index element={<SHome/>}/>
