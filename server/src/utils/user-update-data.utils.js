@@ -1,4 +1,4 @@
-import { admin } from "../controllers/img-upload.controllers.js";
+import { admin } from "../controllers/img-upload.controller.js";
 
 const db = admin.firestore();
 

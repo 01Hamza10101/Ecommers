@@ -1,16 +1,21 @@
 import mongoose from "mongoose";
 
 const AddressSchema = new mongoose.Schema({
+    UserId:{
+        type:String,
+        unique:true,
+        required:true
+    },
     Name:{
         type:String,
         required:true
     },
     MobileNumber:{
-        type:String,
+        type:Number,
         required:true
     },
     PinCode:{
-        type:String,
+        type:Number,
         required:true
     },
     Locality:{
@@ -33,7 +38,7 @@ const AddressSchema = new mongoose.Schema({
         type:String
     },
     MobileNumberOpt:{
-        type:String
+        type:Number
     }
 });
   

@@ -1,7 +1,7 @@
 
 import admin from 'firebase-admin';
 import { FIRE_BASE } from '../constants.js';
-import { getFileSize } from './img-upload.controllers.js';
+import { getFileSize } from './img-upload.controller.js';
 
 const bucket = admin.storage().bucket();
 

@@ -8,13 +8,18 @@ dotenv.config({
     path:'./.env'
 });
 
-import uploadImage from "./controllers/img-upload.controllers.js";
-import downloadImage from "./controllers/img-download.controllers.js";
+import uploadImage from "./controllers/img-upload.controller.js";
+import downloadImage from "./controllers/img-download.controller.js";
 import cors from "cors";
 import SetupUser from "./utils/user-add-data.utils.js";
 import deleteUser from "./utils/user-del-data.utils.js";
 import updateUser from "./utils/user-update-data.utils.js";
 import getdata from  "./utils/user-get-data.utils.js"
+
+import Register from "./controllers/Register.controller.js";
+import UpdateCart from "./controllers/Update-Cart.controller.js";
+import DeleteCart from "./controllers/Delete-Cart.controller.js";
+import AddAddress from "./controllers/AddAddress.controller.js";
 export const app = express();
 
 app.use(cors());
@@ -38,25 +43,30 @@ app.use(logger("dev"));
 //       });
 //     }
 // });
-app.get("/",downloadImage)
-uploadImage().then(()=>{
-    console.log("upload successful");
-})
-downloadImage().then(()=>{
-    console.log("download successful");
-});
-SetupUser().then(()=>{
-    console.log("working");
-})
-deleteUser("eotFA4kN2WMur0mOANKX").then(()=>{
-    console.log("user deleted");
-})
-updateUser("iHl3vGqQ4V6Ef4m9eoup",{
-    email:"1test@gmail.com",
-    password:"1test@test.com",
-    username:"1test"
-})
-getdata("GWFBZOIIb1ev0N85jpwx")
+// app.get("/",downloadImage)
+// uploadImage().then(()=>{
+//     console.log("upload successful");
+// })
+// downloadImage().then(()=>{
+//     console.log("download successful");
+// });
+// SetupUser().then(()=>{
+//     console.log("working");
+// })
+// deleteUser("eotFA4kN2WMur0mOANKX").then(()=>{
+//     console.log("user deleted");
+// })
+// updateUser("iHl3vGqQ4V6Ef4m9eoup",{
+//     email:"1test@gmail.com",
+//     password:"1test@test.com",
+//     username:"1test"
+// })
+// getdata("GWFBZOIIb1ev0N85jpwx");
+
+// Register();
+// UpdateCart();
+// DeleteCart();
+AddAddress();
 // Server listening on port 3000 for incoming requests
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
