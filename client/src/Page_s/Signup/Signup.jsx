@@ -1,28 +1,52 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Signup.css';
 import { useNavigate } from 'react-router-dom';
 
+import { useSelector,useDispatch } from 'react-redux';
+import { RegisterUser } from '../../Redux/Userslice.jsx';
+
 const SignupForm = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const UserState = useSelector((state)=> state.User);
+  
+  useEffect(()=>{
+    console.log(UserState);
+    if(UserState.Token){
+      navigate('/');
+    }
+  },[UserState]);
+
   const [formdata,setFormdata] = useState({
-    name:'',
+    FirstName:'',
+    LastName:'',
     email:'',
     confirmpassword:'',
     password:'',
-  })
+  });
 
   const handleData = (e) => { 
     const { name, value } = e.target;
      setFormdata((prevFormdata) =>
       ({ ...prevFormdata, [name]: value })
       )
-}
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-   console.log(formdata)
-  }
-
+    if(formdata.confirmpassword == formdata.password){
+      dispatch(RegisterUser({
+          FirstName:formdata.FirstName,
+          LastName:formdata.LastName,
+          EmailAddress:formdata.email,
+          Password:formdata.password,
+        }));
+    };
+    if(formdata.confirmpassword !== formdata.password){
+      alert("Please enter correct password")
+    };
+  };
+  
   return (
     <form onSubmit={handleSubmit}  className="Signup-form">
         <div className='div-1'>
@@ -30,14 +54,22 @@ const SignupForm = () => {
         </div>
         <div className='div-2'>
         <h1>Welcome!</h1>
-        <label htmlFor="name">Name</label>
-      <input
+       <label htmlFor="name">First Name</label>
+       <input
         type="text"
-        id="name"
-        name='name'
-        value={formdata.name}
+        id="FirstName"
+        name='FirstName'
+        value={formdata.FirstName}
+        onChange={(e) => handleData(e)}
+       />
+       <label htmlFor="name">Last Name</label>
+       <input
+        type="text"
+        id="LastName"
+        name='LastName'
+        value={formdata.LastName}
         onChange={(e) => handleData(e) }
-      />
+       />
       <label htmlFor="email">Email Address</label>
       <input
         type="email"

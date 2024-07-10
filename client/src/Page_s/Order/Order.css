@@ -1,0 +1,253 @@
+.order-container {
+    max-width: 90vw;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.order-details {
+    margin-bottom: 20px;
+    text-align: left;
+    border: .5px solid #f0f0f0;
+    border-radius: 5px;
+    padding: 15px;
+    display: flex;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.order-details > div:nth-child(1){
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.order-details > div:nth-child(1) > * {
+    margin: 0;
+    padding: 0;
+}
+
+.order-details > div:nth-child(2){
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.order-details > div:nth-child(2) > h4,
+.order-details > div:nth-child(2) > h5{
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    text-decoration: none;
+    color: #212121;
+    letter-spacing: 0.5px;
+    /* margin-bottom: 10px; */
+    font-weight: 400;
+}
+
+.order-details div:nth-child(1) img {
+    width: 80%;
+}
+
+.Order-status{
+    width: 370px;
+}
+.order-details div:nth-child(2) .Order-status .status-1{
+    width: 370px;
+    height: 76px;
+    display: flex;
+    /* margin-top: 20px; */
+    border-bottom: 1px solid #e0e0e0;
+}
+.Order-status .status-1 ._1 div:nth-child(1) h6,
+.Order-status .status-1 ._3 div:nth-child(1) h6{
+    position: absolute;
+    margin-top: -20px;
+    margin-left: -20px;
+    color: rgb(135 135 135 / 51%);
+}
+
+.Order-status .status-1 ._2 div:nth-child(1) h6{
+    position: absolute;
+    margin-top: -20px;
+    margin-left: -30px;
+    color: rgb(135 135 135 / 51%);
+}
+.Order-status .status-1 ._4 div:nth-child(1) h6{
+    position: absolute;
+    margin-top: -20px;
+    margin-left: -30px;
+    color: rgb(135 135 135 / 51%);
+}
+
+.Order-status .status-1 h5{
+    position: absolute;
+    font-size: 10px;
+    margin-bottom: -15px;
+    margin-left: -30px;
+    color: rgb(135 135 135 / 51%);
+}
+.Order-status .status-1 ._4 div:nth-child(3) h5{
+    position: absolute;
+    font-size: 10px;
+    margin-top: 18px;
+    margin-left: -30px;
+    color: rgb(135 135 135 / 51%);
+}
+.Order-status .status-1 ._4 div:nth-child(3) h6{
+    position: absolute;
+    margin-top: -20px;
+    margin-left: -20px;
+    color: rgb(135 135 135 / 51%);
+}
+
+.Order-status .status-1 > ._1 ,
+.Order-status .status-1 > ._2 ,
+.Order-status .status-1 > ._3 ,
+.Order-status .status-1 > ._4 
+/* .Order-status > ._5 */
+{
+    width: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Order-status .status-1 > ._1 > div:nth-child(1) ,
+.Order-status .status-1 > ._2 > div:nth-child(1) ,
+.Order-status .status-1 > ._3 > div:nth-child(1) ,
+.Order-status .status-1 > ._4 > div:nth-child(1) 
+/* .Order-status > ._5 > div:nth-child(1)  */
+{
+    width: 12px;
+    height: 12px;
+    border-radius: 100%;
+    /* background: #26a541; */
+    background: rgb(135 135 135 / 32%);
+    transition:scaleX(0);
+    transition: transform 1s ease-in;
+}
+
+.Order-status .status-1 > ._4 > div:nth-child(3) 
+{
+    width: 14px;
+    height: 12px;
+    border-radius: 100%;
+    background: rgb(135 135 135 / 32%);
+}
+
+.Order-status .status-1 > ._1 > div:nth-child(2) ,
+.Order-status .status-1 > ._2 > div:nth-child(2) ,
+.Order-status .status-1 > ._3 > div:nth-child(2) ,
+.Order-status .status-1 > ._4 > div:nth-child(2) ,
+.Order-status .status-1 > ._5 > div:nth-child(2){
+    width: calc(100% - 10px);
+    height: 4px;
+    background: rgb(135 135 135 / 32%);
+    transform: scaleX(0);
+    transform-origin: center left;
+    transition: transform 1s ease-in;
+}
+
+.Order-status .status-1 > ._1 > div:nth-child(2) {
+    transition-delay: 0s;
+}
+
+.Order-status .status-1 > ._2 > div:nth-child(2) {
+    transition-delay: 1s;
+}
+
+.Order-status .status-1 > ._3 > div:nth-child(2) {
+    transition-delay: 2s;
+}
+
+.Order-status .status-1 > ._4 > div:nth-child(2) {
+    transition-delay: 3s;
+}
+
+.Order-status .status-1 > ._5 > div:nth-child(2) {
+    transition-delay: 4s;
+}
+
+.Order-status .status-2 {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-direction:column ;
+}
+.Order-status .status-2 .status-2-1{
+    width: 0; 
+    height: 0; 
+    margin-top: -8.5px;
+    margin-left:0px;
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-bottom: 9px solid #e0e0e0;
+    transition: 0.4s ease;
+}
+.Order-status .status-2 h5{
+    margin: 5px 0;
+    font-size: 12px;
+}
+.Order-status .status-2 h6{
+    font-size: 10px;
+    margin: 5px 0;
+}
+/* .order-details > div:nth-child(4) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+} */
+
+.order-details > div:nth-child(3){
+    height: 180px;
+    width: 200px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.order-details > div:nth-child(3) > h5{
+    margin: 5px 0;
+    letter-spacing: 1px;
+    display: flex;
+    justify-content: center;
+}
+
+.order-details > div:nth-child(3) > h6{
+    margin: 5px 0 ;
+    letter-spacing: 1px;
+    color: #474545;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.confirmation-message {
+    color: green;
+    font-weight: bold;
+}
+

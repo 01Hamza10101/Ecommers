@@ -1,25 +1,39 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Login.css'
 import { useNavigate } from 'react-router-dom';
 
+import { useSelector,useDispatch } from 'react-redux';
+import { LoginUser } from '../../Redux/Userslice.jsx';
+
 const LoginForm = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const UserState = useSelector((state)=> state.User);
+  
+  useEffect(()=>{
+    if(UserState.Token){
+      navigate('/');
+    }
+  },[UserState]);
+  
   const [formdata,setFormdata] = useState({
-    email:'',
-    password:''
-  })
+    EmailAddress:'',
+    Password:''
+  });
 
   const handleData = (e) => { 
     const { name, value } = e.target;
      setFormdata((prevFormdata) =>
       ({ ...prevFormdata, [name]: value })
       )
-}
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-   console.log(formdata)
-  }
+    dispatch(LoginUser(formdata));
+   console.log(formdata);
+  };
 
   return (
     <form onSubmit={handleSubmit}  className="login-form">
@@ -32,7 +46,7 @@ const LoginForm = () => {
       <input
         type="email"
         id="email"
-        name='email'
+        name='EmailAddress'
         value={formdata.email}
         onChange={(e) => handleData(e) }
       />
@@ -40,11 +54,11 @@ const LoginForm = () => {
       <input
         type="password"
         id="password"
-        name='password'
+        name='Password'
         value={formdata.password}
         onChange={(e) => handleData(e)}
       />
-      <button type="submit" className='submitbtn' onClick={() => navigate('/')}>SIGN IN</button>
+      <button type="submit" className='submitbtn' >SIGN IN</button>
       <a href="/forgot-password" className='forgotBtn'>Forgot password?</a>
       
       <div className='or'><span>or</span></div>

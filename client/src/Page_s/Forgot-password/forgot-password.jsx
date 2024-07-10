@@ -55,7 +55,7 @@ const FogotPasswordform = () => {
         value={formdata.conformpassword}
         onChange={(e) => handleData(e)}
       />
-      <label htmlFor="otp">otp</label>
+      <label htmlFor="otp">One time password</label>
       <input
         type="text"
         id="otp"

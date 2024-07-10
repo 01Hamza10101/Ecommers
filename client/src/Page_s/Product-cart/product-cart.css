@@ -1,14 +1,153 @@
 
 .product-cart{
     width: 100%;
+    display: flex;
 }
 .product-cart > div:nth-child(1){
     display: flex;
     margin-top:20px;
-    width: 100%;
+    margin-left: 5px;
+    margin-right: 10px;
+    width: 65vw;
+    flex-direction: column;
+}
+
+.product-cart > div:nth-child(1) > div:nth-child(1) {
+    display: flex;
     justify-content: space-around;
+}
+.product-cart div:nth-child(1) div:nth-child(2) .Cart-Deliver{
+    height: 30px;
+    font-weight: 550;
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+}
+.product-cart div:nth-child(1) div:nth-child(2) .Cart-Deliver span{
+    margin: 5px;
+    letter-spacing: 1px;
+    color: #3a3737;
+}
+.product-cart div:nth-child(1) div:nth-child(2) .Cart-Deliver span:nth-child(1){
+    letter-spacing: 1px;
+    font-weight: 400;
 }
 .product-cart > div:nth-child(1) h3{
     margin: 0;
     padding: 0;
+}
+.product-cart > div:nth-child(2){
+    width: 30vw;
+}
+.product-cart > .Cart-PriceDetls-Bill> h2{
+    width:100%;
+    padding:18px 0;
+    border-bottom: 1px solid #f0f0f0 ;
+}
+
+.product-cart > .Cart-PriceDetls-Bill > .Cart-Price{
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    color: #3a3737;
+    width:100%;
+    padding:3px;
+    border-bottom: 1px solid #f0f0f0 ;
+}
+
+.product-cart > .Cart-PriceDetls-Bill > .Cart-Price > h2{
+    width: 0px;
+}
+
+.product-cart > .Cart-PriceDetls-Bill > .Cart-Discount{
+    display: flex;
+    justify-content: space-between;
+    color: #3a3737;
+    height: 50px;
+    width:100%;
+    padding:3px;
+    border-bottom: 1px solid #f0f0f0 ;
+}
+.product-cart > .Cart-PriceDetls-Bill > .Cart-Discount h5:nth-child(2){
+    color: green;
+}
+.product-cart > .Cart-PriceDetls-Bill > .Cart-Delivery-Charges{
+    display: flex;
+    justify-content: space-between;
+    color: #3a3737;
+    height: 50px;
+    width:100%;
+    padding:3px;
+    border-bottom: 1px solid #f0f0f0 ;
+}
+.product-cart > .Cart-PriceDetls-Bill > .Cart-Delivery-Charges h5:nth-child(2) span{
+    text-decoration: line-through;
+    color: green;
+}
+.product-cart > .Cart-PriceDetls-Bill > .Cart-Total-Amount{
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    width:100%;
+    padding:3px;
+    border-bottom: 1px solid #f0f0f0 ;
+}
+
+.Cart-PriceDetls-Bill > h3{
+    color: green;
+}
+
+.Cart-PriceDetls-Bill .Order-Place{
+    width: 100%;
+    height: 40px;
+    margin-top: 25px;
+    background:#000000cf;
+    color: #f0f0f0;
+    font-weight: 600;
+    border-radius: 5px;
+}
+.Cart-PriceDetls-Bill .Order-Place:hover{
+    background:#000;
+    font-weight: 600;
+    border-radius: 5px;
+}
+
+.Cart-PriceDetls-Bill .Cart-Payment-option {
+    height: 50px;
+    margin-top: 10px;
+}
+.Cart-PriceDetls-Bill .Cart-Payment-option .Cash-on-delivery{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #f0f0f0;
+    border-top: 1px solid #f0f0f0;
+    height: 30px;
+    padding: 0 10px;
+}
+.Cart-PriceDetls-Bill .Cart-Payment-option .Online-pay{
+    display: flex;
+    justify-content: space-between;
+    /* border-top: 1px solid black; */
+    height: 30px;
+    padding: 0 10px;
+}
+.Cart-PriceDetls-Bill .Cart-Payment-option .Cash-on-delivery > h4{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+}
+.Cart-PriceDetls-Bill .Cart-Payment-option .Online-pay h4{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
 }

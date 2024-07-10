@@ -2,8 +2,8 @@
 // export const MONGODB_URI = process.env.MONGODB_URI;
 // export const FIRE_BASE = process.env.FIRE_BASE;
 
-export const DB_NAME = "test";
-export const MONGODB_URI = "mongodb+srv://new_userEcommer1234:new_userEcommer1234@cluster0.kblhpgg.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+export const DB_NAME = "Ecommers";
+export const MONGODB_URI = "mongodb://localhost:27017";
 export const FIRE_BASE = {
     "type": "service_account",
     "project_id": "test-4b354",
@@ -17,3 +17,4 @@ export const FIRE_BASE = {
     "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-r44c2%40test-4b354.iam.gserviceaccount.com",
     "universe_domain": "googleapis.com"
   };
+export const JWT_SECRET = "123456789JWTSECRET";

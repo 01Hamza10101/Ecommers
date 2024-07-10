@@ -1,7 +1,67 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './profile.css';
-
+import { useLocation } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
+import {UpdateProfile} from "../../Redux/Userslice.jsx";
+import { useNavigate } from 'react-router-dom';
 const ProfileForm = () => {
+  const location = useLocation();
+  const dispatch = useDispatch();
+  const Token = localStorage.getItem('token');
+  const user = useSelector((state)=> state.User.User);
+  const Address = useSelector((state)=> state.User.Address);
+  const navigate = useNavigate();
+  const [formData,setformData] = useState("");
+
+  const [formAddress,setformAddress] = useState({
+    Name:'',
+    MobileNumber:'',
+    PinCode:'',
+    Locality:'',
+    Address:'',
+    City:'',
+    State:'',
+    Landmark:'',
+    MobileNumberOpt:''
+  });
+
+  useEffect(()=>{
+    if(user && !formData){
+      setformData(user);
+      setformAddress(Address);
+    };
+    if(!Token){
+      const currentUrl = location.pathname;
+      alert('Please Login');
+      navigate("/login");      
+    };
+  },[Token,user]);
+
+  const handleData = (e) => { 
+    const { name, value } = e.target;
+    setformData((prevFormdata) =>
+      ({ ...prevFormdata, [name]: value })
+  )
+};
+
+const handleAddressData = (e) => { 
+  const { name, value } = e.target;
+  setformAddress((prevFormdata) =>
+    ({ ...prevFormdata, [name]: value })
+)
+};
+
+const handlerGender = (selectedGender) =>{
+  setformData((prevFormData) => ({
+    ...prevFormData,
+    Gender: selectedGender
+  }));;
+}
+
+function Submit(){
+  dispatch(UpdateProfile({formData,formAddress}));
+  console.log(formData,formAddress);
+}
 
   return (
     <>
@@ -9,25 +69,25 @@ const ProfileForm = () => {
         <div className='Profile-Form'>
            <h3>Personal Information</h3>
            <div className='Name-input'>
-             <div><input type="text" /></div>
-             <div><input type="text" /></div>
+             <div><input type="text" value={formData.FirstName || ''} name='FirstName' onChange={(e)=> handleData(e)} /></div>
+             <div><input type="text" value={formData.LastName || ''}  name='LastName' onChange={(e)=> handleData(e)} /></div>
            </div>
            <h3>Your Gender</h3>
            <div>
             <div>
-              <input type="radio" />
+              <input type="radio" checked={formData.Gender == "Male" ? true : false } onChange={(e)=> handlerGender('Male')} />
               <span>Male</span>
-              <input type="radio" />
+              <input type="radio" checked={formData.Gender == "Female" ? true : false} onChange={(e)=> handlerGender('Female')}/>
               <span>Female</span>
             </div>
            </div>
            <h3>Email Address</h3>
            <div>
-            <input type="text" />
+            <input type="text" value={formData.EmailAddress || ''} name='EmailAddress'  onChange={(e)=> handleData(e)} />
            </div>
            <h3>Mobile Number</h3>
            <div>
-            <input type="text" />
+            <input type="text" value={formData.MobileNumber || ''} name='MobileNumber' onChange={(e)=> handleData(e)} />
            </div>
            <div>
             <h4>FAQs</h4>
@@ -48,32 +108,25 @@ const ProfileForm = () => {
         <div className='Profile-address'>
             <div>EDIT ADDRESS</div>
             <div>
-              <input type="text" placeholder='Name' />
-              <input type="text" placeholder='10-digit mobile number'/>
+              <input type="text" value={formAddress.Name} placeholder='Name' name='Name'  onChange={(e)=> handleAddressData(e)} />
+              <input type="text" value={formAddress.MobileNumber} placeholder='10-digit mobile number' name='MobileNumber'  onChange={(e)=> handleAddressData(e)}/>
             </div>
             <div>
-              <input type="text" placeholder='Pincode'/>
-              <input type="text" placeholder='Locality'/>
+              <input type="text" value={formAddress.PinCode} placeholder='Pincode' name='PinCode' onChange={(e)=> handleAddressData(e)}/>
+              <input type="text" value={formAddress.Locality} placeholder='Locality' name='Locality' onChange={(e)=> handleAddressData(e)}/>
             </div>
             <div>
-              <input type="text" placeholder='Address'/>
+              <input type="text" value={formAddress.Address} placeholder='Address' name='Address' onChange={(e)=> handleAddressData(e)}/>
             </div>
             <div>
-              <input type="text" placeholder='City'/>
-              <input type="text" placeholder='State'/>
+              <input type="text" value={formAddress.City} placeholder='City' name='City' onChange={(e)=> handleAddressData(e)}/>
+              <input type="text" value={formAddress.State} placeholder='State' name='State' onChange={(e)=> handleAddressData(e)}/>
             </div>
             <div>
-              <input type="text" placeholder='Landmark (Optional)'/>
-              <input type="text" placeholder='Alternate Phone (Optional)'/>
+              <input type="text" value={formAddress.Landmark} placeholder='Landmark (Optional)' name='Landmark'  onChange={(e)=> handleAddressData(e)}/>
+              <input type="text" value={formAddress.MobileNumberOpt} placeholder='Alternate Phone (Optional)' name='MobileNumberOpt' onChange={(e)=> handleAddressData(e)}/>
             </div>
-            <h5>Address Type</h5>
-            <div>
-              <input type="radio" />
-              <span>Male</span>
-              <input type="radio" />
-              <span>Female</span>
-            </div>
-            <button>Save</button>
+            <button onClick={Submit}>Save</button>
             <button>Cancel</button>
         </div>
     </div>

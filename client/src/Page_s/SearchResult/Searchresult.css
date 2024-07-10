@@ -61,6 +61,7 @@
 }
 .Search-body .search-product-card h2:hover{
     text-decoration:underline;
+    cursor: pointer;
 }
 .search-product-card .rating-colletion{
     border-radius: 30px;

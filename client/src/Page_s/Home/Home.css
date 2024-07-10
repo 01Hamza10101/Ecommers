@@ -97,6 +97,7 @@
 .card .cart-2 h3{
     padding: 0;
     margin: 0;
+    height: 40px;
 }
 
 .card .rating-colletion{
@@ -133,7 +134,60 @@
 .product-card{
     padding: 5px;
     display: flex;
-    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin: 0 auto;
+}
+.product-card > * {
+    flex: 1 1 270px; 
+    max-width: calc(270px - 10px); 
+}
+@media (max-width: 1560px) {
+    .product-card > * {
+      flex-basis: 10%; 
+      max-width: calc(40% - 10px); 
+    }
+  }
+@media (max-width: 1100px) {
+    .product-card > * {
+      flex-basis: 20%; 
+      max-width: calc(26% - 10px); 
+    }
+  }
+@media (max-width: 1000px) {
+    .product-card > * {
+      flex-basis: 40%; 
+      max-width: calc(30% + 10px); 
+    }
+  }
+@media (max-width: 900px) {
+    .product-card > * {
+      flex-basis: 30%;
+      max-width: calc(30% + 10px); 
+    }
+}
+@media (max-width: 700px) {
+    .product-card > * {
+      flex-basis: 30%; 
+      max-width: calc(30% + 10px); 
+    }
+}
+@media (max-width: 600px) {
+    .product-card > * {
+      flex-basis: 40%; 
+      max-width: calc(50% - 10px); 
+    }
+}
+  
+@media (max-width: 500px) {
+    .product-card {
+        display: flex;
+    }
+    .product-card > * {
+      flex-basis: 47%; 
+      max-width: calc(49% - 10px); 
+    }
 }
 
 .card .card-fetures{

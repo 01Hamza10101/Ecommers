@@ -1,6 +1,6 @@
 .card{
     width: 270px;
-    height: 520px;
+    height: 500px;
     background: #49a0e30f;
     border-radius:  8px;
     overflow: hidden;
@@ -12,10 +12,18 @@
 }
 .card .cart-2 h3{
     padding: 0;
-    margin: 0;
+    margin: -12px 0 0 0;
+}
+.card .cart-2 h3:hover{
+    text-decoration: underline;
+    cursor: pointer;
 }
 .card .cart-1 div:nth-child(1){
     height: 270px;
+}
+.card .cart-1 div:nth-child(1) img{
+    height: 270px;
+    cursor: pointer;
 }
 .card .rating-colletion{
     border-radius: 30px;
@@ -48,33 +56,22 @@
     border-right:2px solid white;
 }
 
-
-.card .card-fetures{
-    width: 100%;
-    height: 30px;
-    background: white;
-    display: flex;
-    align-items: center;
-}
-.card .card-feture{
+.cart-1 .card-Quantity{
     width: fit-content;
-    height: 13px;
-    margin: 5px;
+    margin-top: 20px;
     font-size: 11px;
-    font-weight: 400;
     border-radius: 12px;
     padding: 5px 8px 4px;
     line-height: 1.1;
-    letter-spacing: -.4px;
-    color: #1a2024;
+    letter-spacing: 2px;
     font-weight: 400;
     border: 1px solid rgba(0, 0, 0, 0.2);
-    display: block;
 }
 .card .cart-price{
-    padding:10px;
+    padding:0px;
     width: 92.5%;
-    font-weight: 600;
+    letter-spacing: 1px;
+    font-weight: 500;
 }
 .card .cart-price span {
     font-size: 10px;

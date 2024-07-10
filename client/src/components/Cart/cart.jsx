@@ -3,15 +3,19 @@ import star from './star.png';
 import del from './del.png';
 import { useNavigate } from 'react-router-dom';
 import './cart.css';
+import { useDispatch } from 'react-redux';
+import {DeleteCartProduct} from "../../Redux/Userslice.jsx";
 
-const Cart = () => {
+const Cart = ({data}) => {
+  const dispatch = useDispatch();
   const [productValue, setProductValue] = useState(1);
   let navigate = useNavigate();
+  
   return (
     <div className="cart-product-card" > 
-            <img src="//myfitness.in/cdn/shop/files/choc_Smooth_b62d0b21-1b20-43d6-a154-8b699a109c45_95x95@2x.jpg?v=1703254525" alt="img" />
-            <h2 onClick={() => {navigate('/product/prd')}}>Chocolate Peanut Butter: Smooth</h2>
-            <h3>₹ 300 <span>₹ 200</span></h3>
+            <img src={data?.Image1} alt="img" />
+            <h2 onClick={() => {navigate(`/product/${data._id}`)}}>{data?.Title}</h2>
+            <h3>₹ {data?.CurrentPrice} <span>₹ {data?.OldPrice}</span></h3>
             <div className="rating-colletion">
               <img src={star} alt="img" />
               <span className='star-rating'>4.9</span>
@@ -25,7 +29,7 @@ const Cart = () => {
                 }}>-</div>)}
 
                 {productValue === 1 && (
-                  <div>
+                  <div onClick={()=> {dispatch(DeleteCartProduct(data._id))}}>
                      <img src={del} alt="img" />
                   </div>)}
                   

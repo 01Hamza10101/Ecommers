@@ -1,6 +1,12 @@
 import mongoose from "mongoose";
+import { type } from "os";
 
 const ProuductSchema = new mongoose.Schema({
+    UserId:{
+        type:String,
+        required:true,
+        unique:true
+    },
     Image1:{
         type:String,
         required:true
@@ -30,11 +36,11 @@ const ProuductSchema = new mongoose.Schema({
         required:true
     },
     OldPrice:{
-        type:String,
+        type:Number,
         required:true
     },
     CurrentPrice:{
-        type:String,
+        type:Number,
         required:true
     },
     Pincode:{
@@ -42,6 +48,10 @@ const ProuductSchema = new mongoose.Schema({
         required:true
     },
     Quantity:{
+        type:Number,
+        required:true
+    },
+    ProductWeight:{
         type:Array,
         required:true
     },

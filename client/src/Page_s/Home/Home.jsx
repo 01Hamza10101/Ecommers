@@ -8,13 +8,15 @@ import star from './star.png';
 import insta from './instagram.png';
 import linkdin from './linkdin.png';
 import Productcard from '../../components/Card/product-card';
-const HomePage = () => {
+import { useSelector,useDispatch } from 'react-redux';
 
+const HomePage = () => {
+  const ProductData = useSelector((state) => state.User.ProductData)
+  
     return (
    <>
    <div>
      <div className='Home-body'>
-
       <div className='product-cetogery'>
       <div className='product-1'>
           <div className='product-1-image'>
@@ -33,8 +35,9 @@ const HomePage = () => {
 
       {/* Product Card */}
       <div className='product-card'>
-        <Productcard/>
-        <Productcard/>
+        {ProductData && ProductData.map((data,index) => {
+          return <Productcard key={index} data={data}/>
+        })}
       </div>
 
       <div className='video-banner'>
