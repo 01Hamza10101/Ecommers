@@ -13,27 +13,45 @@ const Productcart = () => {
   const [OnlinePayment,setOnlinePayment] = useState(true);
   const [CashOnDelivery,setCashOnDelivery] = useState(false);
 
-  let Price = 0;
-  let TotalValue = 0; 
-  
   useEffect(()=>{
     const token = localStorage.getItem("token");
     if (!token) {
       navigate("/login");
     }
-
-    CartData?.map((data)=>{
-      Price += data.OldPrice;
-    });
-    CartData?.map((data)=>{
-      TotalValue += data.CurrentPrice;
-    });
   },[]);
   
+  let Price = 0;
+  let TotalValue = 0; 
+  
+  CartData?.map((data)=>{
+    Price += data.OldPrice;
+  });
+  CartData?.map((data)=>{
+    TotalValue += data.CurrentPrice;
+  });
   let DiscountVlue = Number(Price - TotalValue);
-
+  const [ConfirmOrder,setConfirmOrder] = useState();
+  const [InputCaptcha,setInputCaptcha] = useState();
+  
+  function generateRandomString(length) {
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let result = '';
+    for (let i = 0; i < length; i++) {
+      result += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+    return result;
+  }
+  
+  // Generate a simple text-based CAPTCHA with 6 characters
+  const [Captcha,setCaptcha] = useState();
+  function generateCaptcha() {
+    const captchaLength = 6; // Length of the CAPTCHA text
+    const captchaText = generateRandomString(captchaLength); // Generate random text
+    setCaptcha(captchaText);
+  }
+  const [rotated, setRotated] = useState(false);
   return (
-    <div className='product-cart' style={{ justifyContent: CartData.length == 0 ? 'center' : 'initial' }}>
+    <div className='product-cart' style={{ justifyContent: CartData?.length == 0 ? 'center' : 'initial' }}>
       <div>
         <div>
            <h3>Your Cart ({CartData?.length} items)</h3>
@@ -46,7 +64,7 @@ const Productcart = () => {
           })}
         </div>
         </div>
-        {CartData.length !== 0 && (
+        {CartData?.length !== 0 && (
         <div className='Cart-PriceDetls-Bill'>
           <h2>PRICE DETAILS</h2>
           <div className='Cart-Price'>
@@ -66,9 +84,27 @@ const Productcart = () => {
             <div className='Cash-on-delivery' onClick={()=>{setOnlinePayment(false);setCashOnDelivery(true)}}><input checked={CashOnDelivery} onClick={()=>{setCashOnDelivery(true);setOnlinePayment(false)}} type="radio"/><h4>Cash on Delivery</h4></div>
           </div>
           <button className='Order-Place' onClick={()=>{
-            dispatch(PlaceOrder({Phone:Address.MobileNumber,PaymentVia:CashOnDelivery ? "CashOnDelivery" : "OnlinePayment"}));
+            setConfirmOrder(true);
+            generateCaptcha();
             }}>Place order</button>
           <h3>You will save ₹{DiscountVlue} on this order</h3>
+        </div>)}
+        {ConfirmOrder && (
+        <div className='Confirm-Order'>
+          <div className='Confirm-Order-notification'>
+            <div>{Captcha}<img src='https://cdn-icons-png.flaticon.com/512/44/44199.png' style={{transform: rotated ? "rotate(360deg)":"rotate(0deg)"}} onClick={() => {generateCaptcha();setRotated(state => !state)}}/></div>
+            <input type="text" value={InputCaptcha} onChange={(e) => setInputCaptcha(e.target.value)} />
+            <button onClick={()=> {
+              if(InputCaptcha === Captcha){
+                dispatch(PlaceOrder({Phone:Address.MobileNumber,PaymentVia:CashOnDelivery ? "CashOnDelivery" : "OnlinePayment"}));
+                navigate("/");
+              }
+              if(InputCaptcha !== Captcha){
+                alert("Captcha is not valid");
+              }
+            }}>Confirm order</button>
+            <button onClick={()=> setConfirmOrder(false)}>Return to payment options</button>
+          </div>
         </div>)}
     </div>
   )

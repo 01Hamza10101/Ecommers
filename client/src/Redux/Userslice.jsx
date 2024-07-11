@@ -282,7 +282,7 @@ const cartSlice = createSlice({
             state.Order = action.payload;
           });
           builder.addCase(GetOrder.fulfilled,(state,action) => {
-            state.Order = action.payload;
+            state.Order = action.payload.flat();
           })
       },
 

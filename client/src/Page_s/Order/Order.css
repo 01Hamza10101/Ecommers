@@ -35,6 +35,7 @@
 
 .order-details > div:nth-child(2){
     height: 100%;
+    margin: 0 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -54,7 +55,7 @@
 }
 
 .order-details div:nth-child(1) img {
-    width: 80%;
+    width: 200px;
 }
 
 .Order-status{
@@ -161,19 +162,19 @@
 }
 
 .Order-status .status-1 > ._2 > div:nth-child(2) {
-    transition-delay: 1s;
+    transition-delay: .6s;
 }
 
 .Order-status .status-1 > ._3 > div:nth-child(2) {
-    transition-delay: 2s;
+    transition-delay: .9s;
 }
 
 .Order-status .status-1 > ._4 > div:nth-child(2) {
-    transition-delay: 3s;
+    transition-delay: 1.2s;
 }
 
 .Order-status .status-1 > ._5 > div:nth-child(2) {
-    transition-delay: 4s;
+    transition-delay: 1.5s;
 }
 
 .Order-status .status-2 {
