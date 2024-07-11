@@ -1,68 +1,115 @@
-.Profile-Form{
-    width: 800px;
-    /* height: 700px; */
-    /* background-color:; */
-    padding: 15px;
-    font-family: Roboto, Arial, sans-serif;
-    letter-spacing: 0;
+.Profile{
+    display: flex;
 }
-.Profile-Form span{
+
+.Profile-Form {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px;
+    padding: 20px;
+    font-family: 'Roboto', Arial, sans-serif;
+    letter-spacing: 0;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+}
+.Profile-Form h3 {
+    margin-top: 0;
+    margin-bottom: 16px;
+    font-size: 18px;
+    color: #333333;
+}
+
+.Profile-Form span {
     color: #878787;
 }
-.Profile-Form .Name-input{
+
+.Name-input {
     display: flex;
-    width: 450px;
-    height: 50px;
     gap: 12px;
+    margin-bottom: 16px;
 }
 
-.Profile-Form input{
-    padding: 16px;
-    outline: none;
-    font-size: 14px;
-    outline: none;
-    border-radius: 2px;
-    box-shadow: none;
-    background-color: #f1f3f6;
-    border: 1px solid #e0e0e0;
-}
-
-.Profile-Form p{
-    line-height: 30px;
-}
-.Profile-address {
-    width: 800px;
-    height: 700px;
+.Profile-Form input {
+    width: 100%;
     padding: 12px;
-}
-.Profile-address input{
-    padding: 16px;
-    outline: none;
     font-size: 14px;
-    outline: none;
-    border-radius: 2px;
-    box-shadow: none;
+    border-radius: 4px;
+    border: 1px solid #ccc;
     background-color: #f1f3f6;
+    margin-bottom: 12px;
+    box-sizing: border-box;
+}
+.Profile-Form .Radio-Male{
+    display: flex;
+}
+.Profile-Form .Radio-Female{
+    display: flex;
+}
+.Profile-Form input[type="radio"] {
+    margin-right: 8px;
+    width: 50px;
+}
+.Profile-Form span {
+    width: 50px;
+}
+
+.Profile-address {
+    width: 100%;
+    height: fit-content;
+    max-width: 800px;
+    margin: 20px;
+    padding: 20px;
+    background-color: #ffffff;
     border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-sizing: border-box;
 }
-.Profile-address div {
-    margin: 12px;
+
+.Profile-address > div:nth-child(4) input{
+    width: 92%;
 }
-.Profile-address div input {
+.Profile-address input {
+    padding: 12px;
     margin: 5px;
+    font-size: 14px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background-color: #f1f3f6;
+    box-sizing: border-box;
 }
-.Profile-address div:nth-child(4) input{
-    width: 390px;
-    /* background-color: blue; */
+
+.Profile-address div:nth-child(1){
+    font-weight: 600;
+    /* font-size: 18px; */
+    color: #333333;
 }
-.Profile-address button{
+
+.Profile-address button {
     height: 48px;
-    width: 200px;
-    background-color: #2874f0;
+    width: 100%;
+    max-width: 200px;
+    background-color: #000;
+    letter-spacing: 1px;
     border: none;
-    margin-right: 5px;
+    margin-top: 12px;
     font-size: 15px;
     font-weight: 600;
-    box-shadow: 0 1px 2px 0 rgba(0,0,0,.2);
     color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.Profile-address button:hover {
+    background-color: darkblue;
+}
+
+@media (max-width: 768px) {
+    .Profile-address input {
+        width: 100%;
+    }
 }

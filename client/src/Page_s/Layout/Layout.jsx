@@ -7,12 +7,14 @@ import menuimg from '../Home/menu.png';
 import star from '../Home/star.png';
 import insta from '../Home/instagram.png';
 import linkdin from '../Home/linkdin.png';
+import order from '../Home/shopping-bag.png';
 
 import { Outlet } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { GetCartProduct } from '../../Redux/Userslice';
+
 const Layout = ({seller}) => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -38,6 +40,7 @@ const Layout = ({seller}) => {
       {!seller && <> <img className='search-img' src={searchimg} alt="img" onClick={() => navigate('/searchresult') }/> 
       <img className='cart-img' src={cartimg} alt="img" onClick={() => {Token ? navigate('/cart') : navigate('/login'); alertToken(); dispatch(GetCartProduct());}}/>
       <img className='profile-img' src={profileimg} alt="img" onClick={() => {Token ? navigate('/profile') : navigate('/login'); alertToken(); }} />
+      <img className='profile-img' src={order} alt="img" onClick={() => {Token ? navigate('/Orders') : navigate('/login'); alertToken(); }} />
       <img className='menu-img' src={menuimg} alt="img" /> </>}
       {seller && <> 
       <img className='profile-img' src={'profileimg'} alt="invetory" onClick={() => navigate('/seller/inventory') } />

@@ -34,7 +34,7 @@
     position: relative;
     padding: 5px;
     border: 1px solid rgba(2, 68, 85, .4);
-    background-color: #679f37d6;
+    background-color: #000;
     color: #fff;
 }
 .cart-product-card .rating-colletion img{
@@ -54,9 +54,10 @@
 .Pack-of {
     display: flex;
     justify-content: center;
+    align-items: space-around;
+    margin: 5px;
     width: 100px;
     height: 40px;
-    gap: 12px;
     border: 2px solid black;
     border-radius: 3px;
 }

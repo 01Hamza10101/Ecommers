@@ -12,6 +12,7 @@ const ProfileForm = () => {
   const Address = useSelector((state)=> state.User.Address);
   const navigate = useNavigate();
   const [formData,setformData] = useState("");
+  const [IsformEdit,setIsformEdit] = useState(false);
 
   const [formAddress,setformAddress] = useState({
     Name:'',
@@ -49,13 +50,15 @@ const handleAddressData = (e) => {
   setformAddress((prevFormdata) =>
     ({ ...prevFormdata, [name]: value })
 )
+  setIsformEdit(true);
 };
 
 const handlerGender = (selectedGender) =>{
   setformData((prevFormData) => ({
     ...prevFormData,
     Gender: selectedGender
-  }));;
+  }));
+  setIsformEdit(true);
 }
 
 function Submit(){
@@ -65,7 +68,7 @@ function Submit(){
 
   return (
     <>
-    <div>
+    <div className='Profile'>
         <div className='Profile-Form'>
            <h3>Personal Information</h3>
            <div className='Name-input'>
@@ -73,13 +76,13 @@ function Submit(){
              <div><input type="text" value={formData.LastName || ''}  name='LastName' onChange={(e)=> handleData(e)} /></div>
            </div>
            <h3>Your Gender</h3>
-           <div>
-            <div>
-              <input type="radio" checked={formData.Gender == "Male" ? true : false } onChange={(e)=> handlerGender('Male')} />
+           <div className='Radio-Male'>
               <span>Male</span>
-              <input type="radio" checked={formData.Gender == "Female" ? true : false} onChange={(e)=> handlerGender('Female')}/>
-              <span>Female</span>
+              <input type="radio" checked={formData.Gender == "Male" ? true : false } onChange={(e)=> handlerGender('Male')} />
             </div>
+            <div className='Radio-Female'>
+              <span>Female</span>
+              <input type="radio" checked={formData.Gender == "Female" ? true : false} onChange={(e)=> handlerGender('Female')}/>
            </div>
            <h3>Email Address</h3>
            <div>
@@ -106,7 +109,7 @@ function Submit(){
            </div>
         </div>
         <div className='Profile-address'>
-            <div>EDIT ADDRESS</div>
+            <div>Edit Address</div>
             <div>
               <input type="text" value={formAddress.Name} placeholder='Name' name='Name'  onChange={(e)=> handleAddressData(e)} />
               <input type="text" value={formAddress.MobileNumber} placeholder='10-digit mobile number' name='MobileNumber'  onChange={(e)=> handleAddressData(e)}/>
@@ -126,8 +129,9 @@ function Submit(){
               <input type="text" value={formAddress.Landmark} placeholder='Landmark (Optional)' name='Landmark'  onChange={(e)=> handleAddressData(e)}/>
               <input type="text" value={formAddress.MobileNumberOpt} placeholder='Alternate Phone (Optional)' name='MobileNumberOpt' onChange={(e)=> handleAddressData(e)}/>
             </div>
-            <button onClick={Submit}>Save</button>
-            <button>Cancel</button>
+            {IsformEdit && (<button onClick={Submit}>Update</button>)}
+            
+            {/* <button>Cancel</button> */}
         </div>
     </div>
     </>

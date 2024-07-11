@@ -39,7 +39,7 @@ const HomePage = () => {
           return <Productcard key={index} data={data}/>
         })}
       </div>
-
+{/* 
       <div className='video-banner'>
       <h2>HEALTH KA TASTY PARTNER</h2>
       <div className='video-banner-inner'>
@@ -49,9 +49,9 @@ const HomePage = () => {
            <img src="//myfitness.in/cdn/shop/files/Schezwan_1.jpg?v=1691560787" alt="img" />
         </div>
       </div>
-      </div>
+      </div> */}
       
-      <div className='div-coverage'>
+      {/* <div className='div-coverage'>
         <h2>PRESS COVERAGE</h2>
         <div>
           <div className="div-press-coverage">
@@ -67,9 +67,9 @@ const HomePage = () => {
               <img src="https://myfitness.in/cdn/shop/files/brand4.png?v=1706074826&width=300" alt="img" />
           </div>
         </div>
-      </div>
+      </div> */}
       
-      <div className='div-coverage'>
+      {/* <div className='div-coverage'>
         <h2>LEADING BRAND ON MARKETPLACES</h2>
         <div>
           <div className="div-press-coverage">
@@ -85,7 +85,7 @@ const HomePage = () => {
               <img src="//myfitness.in/cdn/shop/files/JioMart-Logo.jpg?v=1707229025&width=300" alt="img" />
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
     </div>
    </>

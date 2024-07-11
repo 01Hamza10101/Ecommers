@@ -26,7 +26,6 @@ function OrderCard({data}) {
     }, [data.Status]);
     
     function ShowMessage(){
-        console.log("showMessage")
         if(Pointer === "0px" && data.Status[0]?.message ){
             return data.Status[0].message
         }if(Pointer === "87px" && data.Status[1]?.message){
@@ -40,7 +39,6 @@ function OrderCard({data}) {
         }
     }
     function ShowDate(){
-        console.log("showDate")
         if(Pointer === "0px" && data.Status[0]?.Date ){
             return data.Status[0].Date
         }if(Pointer === "87px" && data.Status[1]?.Date){
