@@ -6,6 +6,10 @@ const OrderSchema = new mongoose.Schema({
         type:String,
         required:true
     },
+    TotalAmount:{
+        type:Number,
+        required:true
+    },
     ProductIds:[{
         ProductId:{
             type:String,

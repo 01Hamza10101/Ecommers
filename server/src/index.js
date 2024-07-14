@@ -32,6 +32,7 @@ import AddProduct from "./controllers/Add-Product.controller.js";
 import SellerRegister from "./controllers/SellerRegister.controller .js";
 import GetCartProduct from "./controllers/GetCartData.controller.js";
 import PlaceOrder from "./controllers/PlaceOrder.controller.js";
+import CancelOrder from "./controllers/CancelOrder.controller.js";
 import {GetOrder} from "./controllers/PlaceOrder.controller.js";
 import { Address } from "../src/models/address.model.js";
 
@@ -68,6 +69,7 @@ app.get("/GetCartProduct",authMiddleware,GetCartProduct);
 app.post("/DeleteCartItem",authMiddleware,DeleteCart);
 app.post("/PlaceOrder",authMiddleware,PlaceOrder);
 app.get("/GetOrder",authMiddleware,GetOrder);
+app.delete("/CancelOrder",authMiddleware,CancelOrder);
 
 // GetOrder({
 //     req:{

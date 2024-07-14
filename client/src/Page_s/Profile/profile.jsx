@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './profile.css';
 import { useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
-import {UpdateProfile} from "../../Redux/Userslice.jsx";
+import {UpdateProfile , GetUserData} from "../../Redux/Userslice.jsx";
 import { useNavigate } from 'react-router-dom';
 const ProfileForm = () => {
   const location = useLocation();
@@ -37,7 +37,11 @@ const ProfileForm = () => {
       navigate("/login");      
     };
   },[Token,user]);
-
+  useEffect(()=>{
+    if(Token){
+      dispatch(GetUserData());
+    }
+  },[])
   const handleData = (e) => { 
     const { name, value } = e.target;
     setformData((prevFormdata) =>

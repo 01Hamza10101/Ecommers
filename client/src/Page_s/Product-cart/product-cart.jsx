@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import './product-cart.css';
 import Cart from '../../components/Cart/cart';
 import { useDispatch, useSelector } from 'react-redux';
-// import {GetCartProduct} from "../../Redux//Userslice.js";
-import { GetCartProduct , PlaceOrder } from '../../Redux/Userslice';
+import { GetCartProduct , PlaceOrder } from '../../Redux/Userslice.jsx';
 import { useNavigate } from 'react-router-dom';
+
 const Productcart = () => {
   const CartData = useSelector(state => state.User.CartData);
   const Address = useSelector(state => state.User.Address);
@@ -17,6 +17,9 @@ const Productcart = () => {
     const token = localStorage.getItem("token");
     if (!token) {
       navigate("/login");
+    }
+    if(token){
+    dispatch(GetCartProduct());
     }
   },[]);
   
@@ -81,7 +84,9 @@ const Productcart = () => {
           </div>
           <div className='Cart-Payment-option'>
             <div className='Online-pay' onClick={()=>{setOnlinePayment(true);setCashOnDelivery(false)}}><input checked={OnlinePayment} onClick={()=>{setOnlinePayment(true);setCashOnDelivery(false)}} type="radio" /><h4 >Online Payment</h4></div>
-            <div className='Cash-on-delivery' onClick={()=>{setOnlinePayment(false);setCashOnDelivery(true)}}><input checked={CashOnDelivery} onClick={()=>{setCashOnDelivery(true);setOnlinePayment(false)}} type="radio"/><h4>Cash on Delivery</h4></div>
+            <div className='Cash-on-delivery' onClick={()=>{
+              // setOnlinePayment(false);setCashOnDelivery(true)
+              }}><input className='disabled' checked={CashOnDelivery} disabled onClick={()=>{setCashOnDelivery(true);setOnlinePayment(false)}} type="radio"/><h4 className='disabled'>Cash on Delivery</h4></div>
           </div>
           <button className='Order-Place' onClick={()=>{
             setConfirmOrder(true);
@@ -96,7 +101,7 @@ const Productcart = () => {
             <input type="text" value={InputCaptcha} onChange={(e) => setInputCaptcha(e.target.value)} />
             <button onClick={()=> {
               if(InputCaptcha === Captcha){
-                dispatch(PlaceOrder({Phone:Address.MobileNumber,PaymentVia:CashOnDelivery ? "CashOnDelivery" : "OnlinePayment"}));
+                dispatch(PlaceOrder({Phone:Address.MobileNumber,TotalAmount:TotalValue,PaymentVia:CashOnDelivery ? "CashOnDelivery" : "OnlinePayment"}));
                 navigate("/");
               }
               if(InputCaptcha !== Captcha){

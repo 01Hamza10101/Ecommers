@@ -1,0 +1,16 @@
+.order-1{
+    width: 100%;
+    height: 20px;
+    display: flex;
+}
+.Cancel-Order{
+    position: absolute;
+    margin-left: 68.5%;
+    margin-top: 20.5px;
+    border-radius: 5px;
+    background-color: black;
+    border-radius: 0px;
+}
+.Cancel-Order:hover{
+    background-color: darkblue;
+}

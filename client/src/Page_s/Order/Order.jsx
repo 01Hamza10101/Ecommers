@@ -64,7 +64,7 @@ const OrderPage = () => {
             <h4>Your Order Details</h4>
             {!ordrobj && <>loading..</>}
             <div>
-                {ordrobj.map((data,i)=>{
+                {ordrobj?.map((data,i)=>{
                     return <OrderCard data={data} key={i}/>
                 })}
             </div>

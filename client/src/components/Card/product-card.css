@@ -12,7 +12,7 @@
 }
 .card .cart-2 h3{
     padding: 0;
-    margin: -12px 0 0 0;
+    margin: -12px 0 10px 0;
 }
 .card .cart-2 h3:hover{
     text-decoration: underline;
@@ -23,6 +23,11 @@
 }
 .card .cart-1 div:nth-child(1) img{
     height: 270px;
+    transition: 0.6s ease;
+    cursor: pointer;
+}
+.card .cart-1 div:nth-child(1) img:hover{
+    height: 285px;
     cursor: pointer;
 }
 .card .rating-colletion{

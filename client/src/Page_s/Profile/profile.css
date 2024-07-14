@@ -70,9 +70,10 @@
 }
 
 .Profile-address > div:nth-child(4) input{
-    width: 92%;
+    width: 95%;
 }
 .Profile-address input {
+    width: 47%;
     padding: 12px;
     margin: 5px;
     font-size: 14px;

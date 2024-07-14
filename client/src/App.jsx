@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import {SetTokenToState,GetUserData,GetProductData,GetCartProduct} from './Redux/Userslice.jsx';
+import {SetTokenToState,GetUserData,GetProductData} from './Redux/Userslice.jsx';
 import Layout from './Page\_s/Layout/Layout.jsx';
 import LoginForm from './Page\_s/Login/Login.jsx';
 import SignupForm from './Page\_s/Signup/Signup.jsx';
@@ -27,7 +27,6 @@ function App() {
     dispatch(SetTokenToState());
     dispatch(GetUserData());
     dispatch(GetProductData());
-    dispatch(GetCartProduct());
   },[]);
   
   return (

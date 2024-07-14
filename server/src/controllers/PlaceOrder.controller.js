@@ -1,14 +1,40 @@
-import { Types } from "mongoose";
 import Order from "../models/Order.model.js";
 import DeleteCart from "./Delete-Cart.controller.js";
 import {Product} from '../models/product.model.js';
 import GetImageUrl from '../controllers/img-download.controller.js';
+import instance from '../middlewares/Razorpay.js';
 
 async function PlaceOrder(req, res) {
-    try {
+
+    //   let options = {
+    //     amount: 50000,
+    //     currency: "INR",
+    //     receipt: `order_rcptid_11898`,
+    //   };
+    //   instance.orders.create({
+    //       "amount": 50000,
+    //       "currency": "INR",
+    //       "receipt": "receipt#1",
+    //       "partial_payment": false,
+    //       "notes": {
+    //         "key1": "value3",
+    //         "key2": "value2"
+    //       }
+    //     }).then((order) => {
+    //       console.log('Order created successfully:', order);
+    //   })
+    //   .catch((err) => {
+    //       console.error('Error creating order:', err);
+    //       console.log('Complete error object:', err);
+    //   });
+      
+      
+      try {
+
         let OrderRes = new Order({
             UserEmail: req.user.EmailAdress || "mdhanzla30@gmail.com",
             ProductIds: req.user.ProductCart,
+            TotalAmount:req.body.data.TotalAmount,
             Status: {
                 status:"Pending",
                 Date:"Wednusday",
@@ -56,8 +82,10 @@ export async function GetOrder(req,res){
             let products = await Promise.all(order.ProductIds.map(async productIdObj => {
                 let product = await Product.findById(productIdObj.ProductId);
                 let imgurl = await GetImageUrl(product.Image1);
-                // console.log(imgurl);
+                console.log(Product);
                 return {
+                    OrderCard:order._id,
+                    ProductId:productIdObj.ProductId,
                     Title: product.Title,
                     CurrentPrice: product.CurrentPrice,
                     Highlight: product.Highlight,
@@ -66,9 +94,13 @@ export async function GetOrder(req,res){
                     Status:order.Status
                 };
             }));
-            console.log(products);
             return products;
         }));
+        // let OrderCard = orders.map((data)=>{
+        //     return data._id
+        // })
+        // console.log({OrderCard});
+        console.log(orders);
         res.status(200).json(ordrobj);
        
     } catch (error) {

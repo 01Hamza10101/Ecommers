@@ -16,6 +16,7 @@
     padding: 15px;
     display: flex;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -56,6 +57,7 @@
 
 .order-details div:nth-child(1) img {
     width: 200px;
+    margin: 8px;
 }
 
 .Order-status{

@@ -27,7 +27,7 @@ export const GetUserData = createAsyncThunk("user/GetUserData", async (data, thu
     const token = localStorage.getItem("token");
 
     if (!token) {
-      alert("Please Login !");
+      // console.log("Please Login !");
     }
 
     const config = {
@@ -174,6 +174,49 @@ export const DeleteCartProduct = createAsyncThunk("User/DeleteCartProduct", asyn
 
 export const PlaceOrder = createAsyncThunk("User/PlaceOrder", async (data, { rejectWithValue }) => {
   try {
+    let options = {
+      "key": "rzp_test_2IEDRFaCoooycY", // Test Key ID
+      "amount": "50000", // 500 INR
+      "currency": "INR",
+      "name": "Acme Corp",
+      "description": "Test Transaction",
+      "image": "https://storage.googleapis.com/test-4b354.appspot.com/nataliya-melnychuk-51sGDpm5S78-unsplash.jpg?GoogleAccessId=firebase-adminsdk-r44c2%40test-4b354.iam.gserviceaccount.com&Expires=51437808000&Signature=tJp7xIzqsUQHrV9VQGW3rC9A%2Fm17neeSn%2BT71yTuV339kxhqQRTH%2BxjvKTEdI6M%2FU1d2S7yi90hPKRn6n3y7dUkkph3wFt7Jl9lLHGhy289cXgGwn%2BRdxL%2BNanLjY4QdTWYqJrhINjZLTac6WwdyfXAD1eWOEKV6unRBZNS2STBi8RIQgJo7NqVpUn%2FlSL2dQpMUcTEc5%2B9MnNR4p4eyl00ymQBwFJfU4FuoQQifxc%2FbY3pahMHyKBT6azT%2FhGtm2MaREdYw%2B1Z%2Br%2FTtYZ%2F0ham51NTHz7ZSLH%2FSqY%2FZdeTZJq9wvCTAPyaSrByQtSCOk0CkmyJGSdyq3GtsIJSVcw%3D%3D",
+      "order_id": "order_IluGWxBm9U23y8", // Ensure this is a valid Order ID from Razorpay
+      "handler": function (response) {
+          alert(response.razorpay_payment_id);
+          alert(response.razorpay_order_id);
+          alert(response.razorpay_signature);
+      },
+      "prefill": {
+          "name": "Gaurav Kumar",
+          "email": "gaurav.kumar@example.com",
+          "contact": "9000090000"
+      },
+      "notes": {
+          "address": "Razorpay Corporate Office"
+      },
+      "theme": {
+          "color": "#3399cc"
+      }
+  };
+  
+  // let rzp1 = new Razorpay(options);
+  
+  // // Handle payment failure
+  // rzp1.on('payment.failed', function (response) {
+  //     alert(response.error.code);
+  //     alert(response.error.description);
+  //     alert(response.error.source);
+  //     alert(response.error.step);
+  //     alert(response.error.reason);
+  //     alert(response.error.metadata.order_id);
+  //     alert(response.error.metadata.payment_id);
+  // });
+  
+  // Open the payment form
+  // rzp1.open();
+  
+
     const token = localStorage.getItem('token');
     const res = await axios.post(`http://localhost:3000/PlaceOrder`,{data},{
       headers: {
@@ -205,6 +248,29 @@ export const GetOrder = createAsyncThunk("User/GetOrder", async (data, { rejectW
       alert(res.data.msg); 
     }
 
+    return res.data;
+  } catch (error) {
+    console.error("Error:", error);
+    return rejectWithValue(error.response.data); // Return error response data to handle in Redux
+  }
+});
+
+export const CancelOrder = createAsyncThunk("User/CancelOrder", async (data, { rejectWithValue }) => {
+  try {
+    const token = localStorage.getItem('token');
+    const res = await axios.delete(`http://localhost:3000/CancelOrder`,{
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      data:data
+    });
+
+    if (res.data.msg) {
+      alert(res.data.msg);
+      window.location.reload(); 
+    }
+
+    
     return res.data;
   } catch (error) {
     console.error("Error:", error);
@@ -279,10 +345,10 @@ const cartSlice = createSlice({
             state.CartData = state.CartData.filter((item) => item._id !== deletedItemId);
           });
           builder.addCase(PlaceOrder.fulfilled,(state,action)=>{
-            state.Order = action.payload;
+            // state.Order = action.payload.flat();
           });
           builder.addCase(GetOrder.fulfilled,(state,action) => {
-            state.Order = action.payload.flat();
+            state.Order = action.payload.flat().reverse();
           })
       },
 

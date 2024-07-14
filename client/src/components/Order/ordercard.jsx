@@ -1,8 +1,13 @@
 
 import React, { useEffect, useState } from "react";
+import "./ordercard.css";
+import {CancelOrder} from "../../Redux/Userslice.jsx";
+import { useDispatch } from 'react-redux';
 
 function OrderCard({data}) {
     const [Pointer,setPointer] = useState("0px");
+    const dispatch = useDispatch();
+
     const [transform,setTransform] = useState({
         _0:false,
         _1:false,
@@ -12,7 +17,6 @@ function OrderCard({data}) {
     });
     useEffect(() => {
         data.Status.forEach((statusItem, index) => {
-    
             setTimeout(() => {
                 setTransform(prevState => {
                     const newState = {
@@ -51,10 +55,19 @@ function OrderCard({data}) {
             return data.Status[4].Date
         }
     }
-
+    
     return(
         <>
-        <div className="order-details" >
+        <div className="order-detls" >
+            <div className="order-1">
+                {data.Status.length < 2  && 
+                    <button className="Cancel-Order" onClick={()=>{
+                        dispatch(CancelOrder({OrderCard:data.OrderCard , ProductId:data.ProductId , CurrentPrice:data.CurrentPrice}));
+                        console.log(data)
+                    }}>Cancel Order</button>
+                }
+            </div>
+            <div className="order-details">
                 <div>
                     <img src={data.Image1} alt="img" />
                     <h4>₹{data.CurrentPrice}</h4>
@@ -116,16 +129,17 @@ function OrderCard({data}) {
                             </div>
                             <div>
                             </div>
-                        </div> */}
+                            </div> */}
                     </div>
                 </div>
                 <div>
-                    <h5>Message</h5>
+                    {/* <h5>Message</h5>
                     {data.Note.map((data,i) => {
                         return (
                             <h6 key={i}>{data.message}</h6>
-                        )
-                    })}
+                            )
+                            })} */}
+                </div>
                 </div>
             </div>
         </>
