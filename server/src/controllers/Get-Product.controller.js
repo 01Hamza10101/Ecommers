@@ -7,11 +7,18 @@ async function GetProduct(req, res) {
         let response;
         // console.log(req.body);
         if(Object.keys(req.body).length > 0){
-            response = await Product.find({ Title: { $regex: new RegExp(req.body.word, 'i') } });
-            console.log("search result")
+            const keywords = req.body.word.split(" "); // Split the input into individual words
+            const regex = keywords.map(word => new RegExp(word, 'i')); // Create regex for each word
+
+            response = await Product.find({
+                $or: [
+                    { Title: { $in: regex } },
+                    // Add other fields if needed, e.g., { Description: { $in: regex } }
+                ]
+            });
+            console.log("search result");
         }else{
             response = await Product.find().limit(5);
-            console.log("Get")
         };
         
         // console.log(response);

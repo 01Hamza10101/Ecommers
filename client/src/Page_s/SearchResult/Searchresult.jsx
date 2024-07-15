@@ -19,9 +19,11 @@ const SearchResult = () => {
         <div className='serach-inner'>
             <input type="text" value={SearchInput} onChange={(e) => setSearchInput(e.target.value)} onKeyDown={(e) => {
               if(e.key === "Enter"){
-                dispatch(GetSearchResult(SearchInput))
+                if(SearchInput.trim()  !== ""){
+                  dispatch(GetSearchResult(SearchInput));
+                }
               }}} placeholder='Search'/>
-            <button onClick={() => dispatch(GetSearchResult(SearchInput))} >
+            <button onClick={() => {if(SearchInput.trim()  !== ""){dispatch(GetSearchResult(SearchInput))}}}>
                 <img src="https://cdn0.iconfinder.com/data/icons/user-interface-2116/64/3-512.png" alt="Search" />
             </button>
         </div>
