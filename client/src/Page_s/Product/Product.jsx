@@ -3,11 +3,13 @@ import './Product.css';
 import { useParams } from 'react-router-dom';
 import star from './star.png';
 import Productcard from '../../components/Card/product-card';
-import { useSelector } from 'react-redux';
+import { UpdateCart } from '../../Redux/Userslice.jsx';
+import { useDispatch ,useSelector } from 'react-redux';
 
 const ProductPage = () => {
     const ProductsArray = useSelector(state => state.User.ProductData);
     const { productid } = useParams();
+    const dispatch = useDispatch();
     const [data, setData] = useState(null); // Initialize data as null
     console.log(ProductsArray)
     useEffect(() => {
@@ -63,8 +65,8 @@ const ProductPage = () => {
                     </div>
                 </div>
                 <div className='buttons'>
-                    <button>ADD TO CART</button>
-                    <button>BUY NOW</button>
+                    <button onClick={() => dispatch(UpdateCart({Productid:data._id,Pack:1}))}>ADD TO CART</button>
+                    {/* <button>BUY NOW</button> */}
                 </div>
             </div>
             <div className='productright'>

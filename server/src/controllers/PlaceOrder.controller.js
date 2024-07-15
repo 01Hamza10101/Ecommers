@@ -3,6 +3,7 @@ import DeleteCart from "./Delete-Cart.controller.js";
 import {Product} from '../models/product.model.js';
 import GetImageUrl from '../controllers/img-download.controller.js';
 import instance from '../middlewares/Razorpay.js';
+import PaymentGateway from '../utils/Phone-Pay.js';
 
 async function PlaceOrder(req, res) {
 
@@ -30,7 +31,7 @@ async function PlaceOrder(req, res) {
       
       
       try {
-
+        // PaymentGateway();
         let OrderRes = new Order({
             UserEmail: req.user.EmailAdress || "mdhanzla30@gmail.com",
             ProductIds: req.user.ProductCart,

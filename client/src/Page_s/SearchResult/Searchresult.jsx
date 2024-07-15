@@ -44,6 +44,7 @@ const SearchResult = () => {
         
       </div>
     </div>
+    {SearchResult.length == 0 && <h4 style={{textAlign:'center',height: "135px"}}>Please search...</h4> }
     </>
   );
 }

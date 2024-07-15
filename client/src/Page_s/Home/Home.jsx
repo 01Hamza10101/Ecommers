@@ -17,7 +17,7 @@ const HomePage = () => {
    <>
    <div>
      <div className='Home-body'>
-      <div className='product-cetogery'>
+      {/* <div className='product-cetogery'>
       <div className='product-1'>
           <div className='product-1-image'>
             <img src="//myfitness.in/cdn/shop/collections/All_Products_1.webp?v=1706885676&width=500" alt="" />
@@ -30,7 +30,7 @@ const HomePage = () => {
           </div>
           <span>New Arrivals</span>
         </div>
-      </div>
+      </div> */}
       <h2>BEST SELLERS</h2>
 
       {/* Product Card */}
@@ -38,6 +38,7 @@ const HomePage = () => {
         {ProductData && ProductData.map((data,index) => {
           return <Productcard key={index} data={data}/>
         })}
+        {ProductData.length == 0 && <h4 style={{textAlign:'center',height: "135px"}}>Loading...</h4> }
       </div>
 {/* 
       <div className='video-banner'>

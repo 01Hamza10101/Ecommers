@@ -56,13 +56,13 @@
     margin-top: 5px;
     padding: 8px;
     color: white;
-    background: #49a0e3;
+    background: black;
     border: none;
     border-radius: 2px;
     font-weight: 600;
 }
 .product .productleft .buttons button:hover{
-    background: #6cb5ec;
+    background: darkblue;
     border: none;
     border-radius: 2px;
     font-weight: 600;
@@ -128,7 +128,7 @@
     display: flex;
 }
 .product .islocationAvl div img{
-    height: 30px;
+    height: 37px;
 }
 .product h3{
     padding: 0;
@@ -150,16 +150,17 @@
 }
 .product .islocationAvl button{
     border: none;
+    border-radius: 0px;
     background-color: transparent;
     outline: none;
     font-weight: 600;
-    background: #49a0e3;
+    background: black;
     color: white;
     letter-spacing: 2px;
 }
 
 .product .islocationAvl button:hover{
-    background: #72b9ef;
+    background: darkblue;
     color: white;
 }
 .product .product-details{

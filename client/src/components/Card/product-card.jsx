@@ -6,13 +6,24 @@ import { useDispatch, useSelector } from 'react-redux';
 import {UpdateCart} from "../../Redux/Userslice.jsx";
 
 const Productcard = ({data}) => {
+  const Address = useSelector(state => state.User.Address);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   function handleWeight(e) {
     console.log(e.target.value);
-  }
+  };
 
-  // console.log(data);
+  function handleAddToCart(id){
+    let isAvailable = data.Pincode.some((pincode) => pincode == Address.PinCode);
+    if (isAvailable) {
+        dispatch(UpdateCart({ Productid: id, Pack: 1 }));
+    } else {
+        alert("This product cannot be delivered to your specified address.");
+    }
+  };
+
+  // console.log(data,Address);
   return (
     <div className="card" >
         <div className="cart-1">
@@ -36,7 +47,7 @@ const Productcard = ({data}) => {
             return <option key={i}>{data}</option>
             })}
           </select>
-          <button className='addtocart' onClick={() => {dispatch(UpdateCart({Productid:data._id,Pack:1}))}} disabled={data.Quantity == 0 ? true : false} >ADD TO CART</button>
+          <button className='addtocart' onClick={() => {handleAddToCart(data._id)}} disabled={data.Quantity == 0 ? true : false} >ADD TO CART</button>
           {/* <button className='buyitnow' disabled={data.Quantity == 0 ? true : false}  onClick={() => {navigate('/product/prd')}}>BUY IT NOW</button> */}
         </div>
       </div>

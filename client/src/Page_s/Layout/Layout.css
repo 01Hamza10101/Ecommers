@@ -38,15 +38,18 @@
 .Outlet-child{
     padding-top: 65px;
 }
+.div-footer-contaner{
+    display: flex;
+}
 .div-footer{
     width: 100%;
-    height: 700px;
+    height: 390px;
     background: #49a0e3;
     display: flex;
 }
 .div-footer {
     width: 100%;
-    height: 700px;
+    height: 393px;
     /* background: #49a0e3; */
     background: #000;
     margin-top: 50px;

@@ -19,7 +19,9 @@ const Layout = ({seller}) => {
   const navigate = useNavigate();
   const location = useLocation();
   const dispatch = useDispatch();
-  
+  const [Company,setCompany] = useState(false);
+  const [Support,setSupport] = useState(false);
+
   const Token = useSelector((state) => state.User.Token);
   
   function alertToken(){
@@ -41,7 +43,8 @@ const Layout = ({seller}) => {
       <img className='cart-img' src={cartimg} alt="img" onClick={() => {Token ? navigate('/cart') : navigate('/login'); alertToken(); dispatch(GetCartProduct());}}/>
       <img className='profile-img' src={profileimg} alt="img" onClick={() => {Token ? navigate('/profile') : navigate('/login'); alertToken(); }} />
       <img className='profile-img' src={order} alt="img" onClick={() => {Token ? navigate('/Orders') : navigate('/login'); alertToken(); }} />
-      <img className='menu-img' src={menuimg} alt="img" /> </>}
+      {/* <img className='menu-img' src={menuimg} alt="img" />  */}
+      </>}
       {seller && <> 
       <img className='profile-img' src={'profileimg'} alt="invetory" onClick={() => navigate('/seller/inventory') } />
       <img className='profile-img' src={'profileimg'} alt="orders" onClick={() => navigate('/seller/orders') } />
@@ -50,10 +53,10 @@ const Layout = ({seller}) => {
        </>}
     </div>
    </div>
-   <div>
      <div className='Outlet-child'>
-        {<Outlet/>} 
+        {<Outlet/>}
      </div>
+   <div className='div-footer-contaner'>
 
       <div className='div-footer'>
         <div className='upper'>
@@ -75,23 +78,23 @@ const Layout = ({seller}) => {
             
             <div className='div-company'>
               <p>COMPANY</p>
-              <div>
+              {Company && (<div>
               <a href="">About Us</a>
               <a href="">Our Certificates</a>
               <a href="">Recipes</a>
               <a href="">Blogs</a>
               <a href="">Behind The Scenes</a>
-              </div>
+              </div>)}
             </div>
             <div className='div-support'>
               <p>SUPPORT</p>
-              <div>
+              {Support && (<div>
               <a href="">About Us</a>
               <a href="">Our Certificates</a>
               <a href="">Recipes</a>
               <a href="">Blogs</a>
               <a href="">Behind The Scenes</a>
-              </div>
+              </div>)}
             </div>
             <div className='div-getintouch'>
               <p>GET IN TOUCH</p>

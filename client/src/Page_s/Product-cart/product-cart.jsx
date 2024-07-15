@@ -54,6 +54,7 @@ const Productcart = () => {
   }
   const [rotated, setRotated] = useState(false);
   return (
+    <>
     <div className='product-cart' style={{ justifyContent: CartData?.length == 0 ? 'center' : 'initial' }}>
       <div>
         <div>
@@ -112,6 +113,7 @@ const Productcart = () => {
           </div>
         </div>)}
     </div>
+        {CartData?.length == 0 && <h1 style={{textAlign:'center',height: "120px"}}>You have no products in your cart.</h1> }</>
   )
 }
 

@@ -35,7 +35,7 @@ import PlaceOrder from "./controllers/PlaceOrder.controller.js";
 import CancelOrder from "./controllers/CancelOrder.controller.js";
 import {GetOrder} from "./controllers/PlaceOrder.controller.js";
 import { Address } from "../src/models/address.model.js";
-
+import PaymentGateway from "./utils/Phone-Pay.js";
 export const app = express();
 
 app.use(cors());
@@ -70,6 +70,7 @@ app.post("/DeleteCartItem",authMiddleware,DeleteCart);
 app.post("/PlaceOrder",authMiddleware,PlaceOrder);
 app.get("/GetOrder",authMiddleware,GetOrder);
 app.delete("/CancelOrder",authMiddleware,CancelOrder);
+// app.get("/pay",PaymentGateway);
 
 // GetOrder({
 //     req:{

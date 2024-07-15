@@ -20,40 +20,42 @@ const OrderPage = () => {
     },[]);
     
     
-    const [ordrobj , setOrderobj] = useState([{
-        Title:"Title",
-        Highlight:"highlight",
-        CurrentPrice:123,
-        Image1:"https://rukminim2.flixcart.com/image/200/200/xif0q/lungi/u/4/h/free-lungi-2-10mts-sgreen-mintgreen-bblue-grey-4-gowri-tex-original-imagdd6eytav7rhg-bb.jpeg?q=90",
-        Note:[{
-            message:"started"
-        }],
-        Status:[{
-            status:"Pending",
-            Date:"Tue, 6th Jun",
-            message:"Your order is put on hold"
-        },{
-            status:"Order Confirmed",
-            Date:"Tue, 6th Jun",
-            message:"Your order is confirmed"
-        },
-        {
-            status:"In Progress",
-            Date:"Thu, 8th Jun",
-            message:"Your order is in progress"
-        },
-        {
-            status:"Out for Delivery",
-            Date:"Sun, 11th Jun",
-            message:"Your order is out of delivery"
-        },
-        {
-                status:"Delivered",
-                Date:"Sun, 11th Jun",
-                message:"Your order is delivered"
-            }
-        ]
-    }]);
+    const [ordrobj , setOrderobj] = useState(
+    //     [{
+    //     Title:"Title",
+    //     Highlight:"highlight",
+    //     CurrentPrice:123,
+    //     Image1:"https://rukminim2.flixcart.com/image/200/200/xif0q/lungi/u/4/h/free-lungi-2-10mts-sgreen-mintgreen-bblue-grey-4-gowri-tex-original-imagdd6eytav7rhg-bb.jpeg?q=90",
+    //     Note:[{
+    //         message:"started"
+    //     }],
+    //     Status:[{
+    //         status:"Pending",
+    //         Date:"Tue, 6th Jun",
+    //         message:"Your order is put on hold"
+    //     },{
+    //         status:"Order Confirmed",
+    //         Date:"Tue, 6th Jun",
+    //         message:"Your order is confirmed"
+    //     },
+    //     {
+    //         status:"In Progress",
+    //         Date:"Thu, 8th Jun",
+    //         message:"Your order is in progress"
+    //     },
+    //     {
+    //         status:"Out for Delivery",
+    //         Date:"Sun, 11th Jun",
+    //         message:"Your order is out of delivery"
+    //     },
+    //     {
+    //             status:"Delivered",
+    //             Date:"Sun, 11th Jun",
+    //             message:"Your order is delivered"
+    //         }
+    //     ]
+    // }]
+);
     
     useEffect(()=>{
         setOrderobj(Order);
@@ -68,8 +70,9 @@ const OrderPage = () => {
                     return <OrderCard data={data} key={i}/>
                 })}
             </div>
+            {Order?.length == 0 && <h1 style={{textAlign:'center',height: "120px"}}>You have no Orders.</h1> }
         </div>
-    );
+    )
 };
 
 export default OrderPage;
