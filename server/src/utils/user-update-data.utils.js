@@ -10,8 +10,6 @@ export default async function updateUser(userId, newData) {
 
         // Update the document with new data
         await userRef.update(newData);
-        console.log(userRef);
-        console.log("Document updated successfully");
     } catch (error) {
         console.error("Error updating document: ", error);
     }

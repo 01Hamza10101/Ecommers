@@ -112,10 +112,7 @@ export const getFileSize = async (filePath) => {
 function cancelUpload() {
     if (fileStream) {
         fileStream.destroy(); // Close the file stream
-        console.log('Upload cancelled.');
-    } else {
-        console.log('No upload in progress.');
-    }
+    };
 }
 async function uploadImage() {
     try {
@@ -123,7 +120,6 @@ async function uploadImage() {
         const [exists] = await bucket.file(fileName).exists();
 
         if (exists) {
-            console.log('File already exists in GCS');
         } else {
             // Create a read stream to the local file
             fileStream = fs.createReadStream(filePath);
@@ -143,20 +139,15 @@ async function uploadImage() {
           let fileBytes = 0;
           const fileSize = await getFileSize(filePath);
           fileStream.on('data', (chunk) => {
-                    console.log(chunk);
                     fileBytes += chunk.length;
-                    console.log(fileBytes);
-                    console.log(fileSize);
                     const progress = (fileBytes / fileSize) * 100;
                     // if(progress.toFixed(2) > 50){
                     //     cancelUpload();
                     // }
-                    console.log(`Upload is ${progress.toFixed(2)}% done`);
           });
           
           // Handle upload completion
             uploadStream.on('finish', () => {
-                console.log('File uploaded successfully.');
             });
 
             // Pipe the file stream to the upload stream

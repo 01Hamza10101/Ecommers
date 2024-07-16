@@ -9,10 +9,7 @@ async function CancelOrder(req, res) {
     }
 
     try {
-        console.log('Updating Order:', OrderCard);
-        console.log('Removing Product:', ProductId);
-        console.log('Current Price:', CurrentPrice);
-
+        
         const order = await Order.findOneAndUpdate(
             { _id: OrderCard },
             {

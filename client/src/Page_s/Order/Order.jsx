@@ -11,10 +11,9 @@ const OrderPage = () => {
 
     useEffect(()=>{
     const token = localStorage.getItem('token');
-            if(token){
+            if(token !== null){
                 dispatch(GetOrder());
-            }
-            if(!token){
+            }else{
                 navigate("/login")
             }
     },[]);

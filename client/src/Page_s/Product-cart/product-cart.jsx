@@ -15,10 +15,10 @@ const Productcart = () => {
 
   useEffect(()=>{
     const token = localStorage.getItem("token");
-    if (!token) {
+    if (token == null) {
       navigate("/login");
     }
-    if(token){
+    if(token !== null){
     dispatch(GetCartProduct());
     }
   },[]);
@@ -103,7 +103,7 @@ const Productcart = () => {
             <button onClick={()=> {
               if(InputCaptcha === Captcha){
                 dispatch(PlaceOrder({Phone:Address.MobileNumber,TotalAmount:TotalValue,PaymentVia:CashOnDelivery ? "CashOnDelivery" : "OnlinePayment"}));
-                navigate("/");
+                // navigate("/");
               }
               if(InputCaptcha !== Captcha){
                 alert("Captcha is not valid");

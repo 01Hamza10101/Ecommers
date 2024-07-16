@@ -18,11 +18,9 @@ export default async function getdata(userId) {
         // Merge existing data with new data
         const userData = snapshot.data();
         // const updatedData = { ...userData, ...newData };
-        console.log(userData);
         // Update the document with merged data
         // await userRef.update(updatedData);
 
-        console.log("Document updated successfully");
     } catch (error) {
         console.error("Error updating document: ", error);
     }

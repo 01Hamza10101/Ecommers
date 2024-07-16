@@ -13,8 +13,6 @@ async function DeleteCart(req,res){
                 }
             }
         })
-        console.log("req",req);
-        console.log("DeleteCart");
         if(req.Type !== "OrderRes"){
             res.status(200).json(user);
         }
@@ -22,7 +20,6 @@ async function DeleteCart(req,res){
         if(req.Type !== "OrderRes"){
             res?.status(400).json({msg:"Product cart deleted",error});
         }
-        console.log(error);
     }
 }
 

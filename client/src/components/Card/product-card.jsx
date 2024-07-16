@@ -23,7 +23,6 @@ const Productcard = ({data}) => {
     }
   };
 
-  // console.log(data,Address);
   return (
     <div className="card" >
         <div className="cart-1">

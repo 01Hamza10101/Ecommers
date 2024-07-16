@@ -21,7 +21,6 @@ const authMiddleware = async (req, res, next) => {
         }
         // Attach user object to request for further use in routes
         req.user = user;
-        // console.log(user);
         next();
         // res.status(200).json(user);
     } catch (error) {

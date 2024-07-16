@@ -31,14 +31,15 @@ const ProfileForm = () => {
       setformData(user);
       setformAddress(Address);
     };
-    if(!Token){
+    if(Token == null){
       const currentUrl = location.pathname;
       alert('Please Login');
-      navigate("/login");      
+      navigate("/login");     
     };
   },[Token,user]);
+
   useEffect(()=>{
-    if(Token){
+    if(Token !== null){
       dispatch(GetUserData());
     }
   },[])
@@ -67,7 +68,6 @@ const handlerGender = (selectedGender) =>{
 
 function Submit(){
   dispatch(UpdateProfile({formData,formAddress}));
-  console.log(formData,formAddress);
 }
 
   return (

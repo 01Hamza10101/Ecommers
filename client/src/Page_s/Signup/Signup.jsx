@@ -11,7 +11,6 @@ const SignupForm = () => {
   const UserState = useSelector((state)=> state.User);
   
   useEffect(()=>{
-    console.log(UserState);
     if(UserState.Token){
       navigate('/');
     }
@@ -35,16 +34,23 @@ const SignupForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if(formdata.confirmpassword == formdata.password){
-      dispatch(RegisterUser({
+      let register = dispatch(RegisterUser({
           FirstName:formdata.FirstName,
           LastName:formdata.LastName,
           EmailAddress:formdata.email,
           Password:formdata.password,
         }));
+        // if (register.payload.token) {
+        //   navigate('/');
+        //   window.location.reload();
+        // } else {
+        //     console.error('Login failed:', resultAction.payload);
+        // }
     };
     if(formdata.confirmpassword !== formdata.password){
       alert("Please enter correct password")
     };
+    
   };
   
   return (

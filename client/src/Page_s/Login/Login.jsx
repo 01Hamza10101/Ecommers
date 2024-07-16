@@ -9,14 +9,6 @@ const LoginForm = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const UserState = useSelector((state)=> state.User);
-  
-  useEffect(()=>{
-    if(UserState.Token){
-      navigate('/');
-    }
-  },[UserState]);
-  
   const [formdata,setFormdata] = useState({
     EmailAddress:'',
     Password:''
@@ -29,10 +21,16 @@ const LoginForm = () => {
       )
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(LoginUser(formdata));
-   console.log(formdata);
+    const resultAction = await dispatch(LoginUser(formdata));
+
+    if (resultAction.payload.token) {
+      navigate('/');
+      window.location.reload();
+    } else {
+        console.error('Login failed:', resultAction.payload);
+    }
   };
 
   return (

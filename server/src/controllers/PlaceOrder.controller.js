@@ -61,13 +61,11 @@ async function PlaceOrder(req, res) {
                                 }
                             });
                         } catch (error) {
-                            console.error(`Error deleting cart item ${data.ProductId}:`, error);
                         }
                     }))
         OrderRes.save().then(() => {
             res.status(200).json({ msg: "Order Placed", OrderRes });
         });
-        console.log(req.user.ProductCart);
     } catch (error) {
         res.status(400).json({ msg: "Order Place failed!", error });
     }
@@ -83,7 +81,6 @@ export async function GetOrder(req,res){
             let products = await Promise.all(order.ProductIds.map(async productIdObj => {
                 let product = await Product.findById(productIdObj.ProductId);
                 let imgurl = await GetImageUrl(product.Image1);
-                console.log(Product);
                 return {
                     OrderCard:order._id,
                     ProductId:productIdObj.ProductId,
@@ -100,13 +97,9 @@ export async function GetOrder(req,res){
         // let OrderCard = orders.map((data)=>{
         //     return data._id
         // })
-        // console.log({OrderCard});
-        console.log(orders);
         res.status(200).json(ordrobj);
        
     } catch (error) {
-        console.log(error);
         res.status(400).json({msg:"Order not found!"});
     }
-    console.log(req.user);
 };

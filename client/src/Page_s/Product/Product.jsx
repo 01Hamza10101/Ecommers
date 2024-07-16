@@ -10,18 +10,16 @@ const ProductPage = () => {
     const ProductsArray = useSelector(state => state.User.ProductData);
     const { productid } = useParams();
     const dispatch = useDispatch();
-    const [data, setData] = useState(null); // Initialize data as null
-    console.log(ProductsArray)
+    const [data, setData] = useState(null);
+    
     useEffect(() => {
-        if (!ProductsArray) return; // Return early if ProductsArray is undefined or null
-        
-        // Find the product by productid
+        if (!ProductsArray) return; 
         const foundProduct = ProductsArray.find(product => product._id === productid);
         
         if (foundProduct) {
             setData(foundProduct);
         } else {
-            setData(null); // Set data to null if product is not found
+            setData(null);
         }
     }, [ProductsArray, productid]);
 

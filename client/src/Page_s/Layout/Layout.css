@@ -27,7 +27,7 @@
 .NavBar .search-img,
 .NavBar .cart-img,
 .NavBar .profile-img,
-.NavBar .menu-img{
+.NavBar .Logout-img{
     filter: brightness(0) invert(1);
     width:25px;
     height:25px;

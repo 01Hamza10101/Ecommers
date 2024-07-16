@@ -9,7 +9,6 @@ const userData = {
 
 // Add the data to Firestore
 export default async function SetupUser(){
-    console.log("working")
     const usersCollection = db.collection('users');
     usersCollection.add(userData)
     .then((docRef) => {

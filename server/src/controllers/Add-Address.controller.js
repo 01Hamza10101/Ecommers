@@ -15,9 +15,7 @@ async function AddAddress(id){
         Landmark:'example',
         MobileNumberOpt:1234567890
     })
-    AddAddress.save().then(()=>{
-        console.log(AddAddress);
-    })
+    AddAddress.save();
 }
 
 export default AddAddress;

@@ -11,9 +11,7 @@ async function SellerRegister(){
         Password: 'password123',
         ProfileImageId: 'https://example.com/profile.jpg',
     });
-    newUser.save().then(()=>{
-        console.log("SellerUser is Registerd");
-    })
+    newUser.save();
 }
 
 export default SellerRegister;

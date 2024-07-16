@@ -21,17 +21,39 @@ const Layout = ({seller}) => {
   const dispatch = useDispatch();
   const [Company,setCompany] = useState(false);
   const [Support,setSupport] = useState(false);
+  const [Token,setToken] = useState( null || localStorage.getItem("token"));
 
-  const Token = useSelector((state) => state.User.Token);
-  
-  function alertToken(){
-    const currentPath = location.pathname; 
-    if(!Token && currentPath !== '/Login'){
-          alert("Please Login");
-          console.log(Token);
-          console.log(currentPath);
-        }
-  }
+  const handleNavigate = (data) => {
+    const token = localStorage.getItem("token");
+    if (token == null) {
+        navigate("/login");
+        return;
+    }
+    switch (data) {
+        case "cart":
+            navigate("/cart");
+            break;
+        case "profile":
+            navigate("/profile");
+            break;
+        case "order":
+            navigate("/orders");
+            break;
+        case "logout":
+            localStorage.removeItem("token");
+            setToken(null);
+            navigate("/");
+            break;
+        default:
+            navigate("/login");
+    }
+  };
+  function handleStyleLogout(){
+    return Token == null ? "brightness(0) invert(0.4)" : "brightness(0) invert(1)";
+  };
+  // function handleStyleLogoutCursor(){
+  //   return Token == null ? "not-allowed" : "";
+  // }
     return (
    <>
    <div className='NavBar'>
@@ -39,11 +61,11 @@ const Layout = ({seller}) => {
       navigate('/')
     }} />
     <div className='div-2'>
-      {!seller && <> <img className='search-img' src={searchimg} alt="img" onClick={() => navigate('/searchresult') }/> 
-      <img className='cart-img' src={cartimg} alt="img" onClick={() => {Token ? navigate('/cart') : navigate('/login'); alertToken(); dispatch(GetCartProduct());}}/>
-      <img className='profile-img' src={profileimg} alt="img" onClick={() => {Token ? navigate('/profile') : navigate('/login'); alertToken(); }} />
-      <img className='profile-img' src={order} alt="img" onClick={() => {Token ? navigate('/Orders') : navigate('/login'); alertToken(); }} />
-      {/* <img className='menu-img' src={menuimg} alt="img" />  */}
+      {!seller && <> <img  className='search-img' src={searchimg} alt="img" onClick={() => {navigate('/searchresult')}}/>
+      <img style={{ filter: handleStyleLogout()}} className='cart-img' src={cartimg} alt="img" onClick={() => {handleNavigate("cart");dispatch(GetCartProduct())}}/>
+      <img style={{ filter: handleStyleLogout()}} className='profile-img' src={profileimg} alt="img" onClick={() => {handleNavigate("profile")}} />
+      <img style={{ filter: handleStyleLogout()}} className='profile-img' src={order} alt="img" onClick={() => {handleNavigate("order")}} />
+      {Token !== null && (<img className='Logout-img' src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/logout-e63ddf.svg" alt="img" onClick={()=>{handleNavigate("logout")}} />)} 
       </>}
       {seller && <> 
       <img className='profile-img' src={'profileimg'} alt="invetory" onClick={() => navigate('/seller/inventory') } />

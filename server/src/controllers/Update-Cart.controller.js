@@ -7,7 +7,6 @@ async function UpdateCart(req,res){
         if (productInCart) {
             return res.status(200).json({ msg: 'Product already in cart' });
         }
-        // console.log(req.user.ProductCart);
         const user = await User.findOneAndUpdate({
              EmailAddress:req.user.EmailAddress
          },{
@@ -30,7 +29,6 @@ async function UpdateCart(req,res){
     // const data = await User.findOne({
     //     EmailAddress:"johndoe@example.com"
     // })
-    // console.log(data)
 }
 
 export default UpdateCart;

@@ -1,7 +1,7 @@
 import {createSlice,createAsyncThunk} from "@reduxjs/toolkit"
 import axios from "axios";
+
 export const RegisterUser = createAsyncThunk("user/register",async (data) => {
-    // console.log(data);
     try {
         const res = await axios.post('http://localhost:3000/Register',data);
         res.data.msg ? alert(res.data?.msg) : "";
@@ -13,7 +13,7 @@ export const RegisterUser = createAsyncThunk("user/register",async (data) => {
 
 export const LoginUser = createAsyncThunk("user/Login",async (data) => {
   try {
-      const res = await axios.post('http://localhost:3000/Login',data);
+    const res = await axios.post('http://localhost:3000/Login',data);
       res.data.msg ? alert(res.data?.msg) : "";
       localStorage.setItem('token', res.data.token);
       return res.data;
@@ -25,10 +25,6 @@ export const LoginUser = createAsyncThunk("user/Login",async (data) => {
 export const GetUserData = createAsyncThunk("user/GetUserData", async (data, thunkAPI) => {
   try {
     const token = localStorage.getItem("token");
-
-    if (!token) {
-      // console.log("Please Login !");
-    }
 
     const config = {
       headers: {

@@ -11,7 +11,6 @@ export default async function deleteUser(userId) {
         // Delete the document
         await userRef.delete();
 
-        console.log("Document deleted successfully");
     } catch (error) {
         console.error("Error deleting document: ", error);
     }

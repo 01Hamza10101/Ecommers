@@ -63,7 +63,6 @@ function OrderCard({data}) {
                 {data.Status.length < 2  && 
                     <button className="Cancel-Order" onClick={()=>{
                         dispatch(CancelOrder({OrderCard:data.OrderCard , ProductId:data.ProductId , CurrentPrice:data.CurrentPrice}));
-                        console.log(data)
                     }}>Cancel Order</button>
                 }
             </div>

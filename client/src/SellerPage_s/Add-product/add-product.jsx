@@ -18,8 +18,6 @@ const AddProduct = () => {
         setTitleContent(e.target.value);
         // const lineHeight = parseInt(window.getComputedStyle(textareaRef.current).lineHeight) || 16;
         // const rows = Math.floor(textareaRef.current.scrollHeight / lineHeight);
-        // console.log(textareaRef.current.scrollHeight);
-        // // console.log(lineHeight)
         // setTitlerows(rows);
     };
     const [productdesAray,setProductdesAray] = useState([]);
@@ -32,7 +30,6 @@ const AddProduct = () => {
         if (e.key == 'Enter'){
         setProductdesAray([...productdesAray,productdes]);
         setProductdes({ value: '', isBold: '' });
-        console.log(productdes)
     }
     }
     function handletextsellarea(e){

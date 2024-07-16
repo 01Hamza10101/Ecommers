@@ -23,7 +23,6 @@ async function Register(req, res) {
         });
         
         await newUser.save().then(()=>{
-            console.log("New User is Registered");
             AddAddress(newUser._id);
             res.status(200).json({ data:newUser , msg: "New User Registered" });
         })

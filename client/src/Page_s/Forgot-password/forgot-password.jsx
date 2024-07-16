@@ -21,7 +21,6 @@ const FogotPasswordform = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-   console.log(formdata)
   }
 
   return (

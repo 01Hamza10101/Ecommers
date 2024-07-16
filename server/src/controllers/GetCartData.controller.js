@@ -22,7 +22,6 @@ async function GetCartProduct(req, res) {
     try {
         let response = await findProductsByIds(req.user.ProductCart);
         // let response = await findProductsByIds(req.user.ProductCart);
-        // console.log(response);
         const productdata = await Promise.all(response.map(async (data) => {
             const Image1 = await GetImageUrl(data.Image1);
             const Image2 = await GetImageUrl(data.Image2);

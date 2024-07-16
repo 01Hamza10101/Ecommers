@@ -21,7 +21,6 @@ async function AddProduct(){
     SupplierDescription:"Get ready for a delicious snack with our combo pack! MyFitness Chocolate & Olympia Peanut Butter is the perfect way to fuel your body with the power of protein and indulge in a delicious taste. Made with the finest ingredients, the Olympia spread is packed with added whey protein to support your fitness goal. And if you're looking to curb your chocolate cravings, then the Chocolate variant is just what you need. It's a delicious blend of unsweetened Belgian chocolate and 100% roasted peanuts, making it the perfect protein snack. So why wait? Indulge in the perfect balance of taste and nutrition by trying our Chocolate Smooth and Olympia Smooth Duo Pack today!"
     })
     AddProduct.save();
-    console.log(AddProduct);
 }
 
 export default AddProduct;
