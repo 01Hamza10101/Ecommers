@@ -92,9 +92,9 @@ html,body{
   .Profile-address input{
     width:46%;
   }
-  .order-detls{
+  /* .order-detls{
     /* display: flex; */
-  }
+  } */
   .order-details div:nth-child(1) img{
     width: 70px;
   }
