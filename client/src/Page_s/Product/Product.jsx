@@ -8,6 +8,8 @@ import { useDispatch ,useSelector } from 'react-redux';
 
 const ProductPage = () => {
     const ProductsArray = useSelector(state => state.User.ProductData);
+    // const ProductData = useSelector((state) => state.User.ProductData)
+
     const { productid } = useParams();
     const dispatch = useDispatch();
     const [data, setData] = useState(null);
@@ -70,11 +72,11 @@ const ProductPage = () => {
             <div className='productright'>
                 <div className='product-details'>
                     <h2>{data.Title}</h2>
-                    <div className="rating-colletion">
+                    {/* <div className="rating-colletion">
                         <img src={star} alt="img" />
                         <span className='star-rating'>4.9</span>
                         <span>6556</span>
-                    </div>
+                    </div> */}
                     <h2>₹ {data.CurrentPrice} <span>₹ {data.OldPrice}</span></h2>
                     <div className='islocationAvl'>
                         <h3>Delivery</h3>
@@ -93,7 +95,7 @@ const ProductPage = () => {
                         <h3>Weight</h3>
                         <div>
                             {data.ProductWeight.map((weight, i) => (
-                                <div key={i}>{weight} kg</div>
+                                <div key={i}>{weight}</div>
                             ))}
                         </div>
                     </div>
@@ -150,6 +152,12 @@ const ProductPage = () => {
                         )}
                     </div>
                 </div>
+            </div>
+            <div className='product-card'>
+                {ProductsArray && ProductsArray.map((data,index) => {
+                return <Productcard key={index} data={data}/>
+                })}
+                {ProductsArray.length == 0 && <h4 style={{textAlign:'center',height: "135px"}}>Loading...</h4> }
             </div>
         </div> )}</>
     );

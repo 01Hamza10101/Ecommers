@@ -35,11 +35,11 @@ const SearchResult = () => {
             <img src={data.Image1} alt="img" />
             <h2 onClick={() => navigate(`/product/${data._id}`)}>{data.Title}</h2>
             <h3>₹ {data.CurrentPrice} <span>₹ {data.OldPrice}</span></h3>
-            <div className="rating-colletion">
+            {/* <div className="rating-colletion">
               <img src={star} alt="img" />
               <span className='star-rating'>4.9</span>
               <span>6556</span>
-            </div>
+            </div> */}
             </div>
           )
         })}

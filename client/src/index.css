@@ -130,6 +130,38 @@ html,body{
   .card .cart-2 h3{
     overflow: hidden;
   }
+
+  .product{
+    flex-direction: column;
+  }
+  .product .productleft{
+    width: 97%;
+  }
+  .buttons button{
+    width: 100%;
+  }
+  .product > div:nth-child(2) {
+    width: 96%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .product .islocationAvl div{
+    width: 260px;
+  }
+  .product .islocationAvl div input{
+    width: 141px;
+  }
+  .product .islocationAvl button{
+    width: 76px;
+    padding: 0;
+  }
+  .Search-body .search-product-card img{
+    width: 70px;
+  }
+  .Search-body .search-product-card h2{
+    font-size: 18px;
+    width: 180px;
+  }
 }
 
 @media (max-width: 500px) {

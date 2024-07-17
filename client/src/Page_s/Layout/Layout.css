@@ -43,13 +43,12 @@
 }
 .div-footer{
     width: 100%;
-    height: 390px;
+    height: 412px;
     background: #49a0e3;
     display: flex;
 }
 .div-footer {
     width: 100%;
-    height: 393px;
     /* background: #49a0e3; */
     background: #000;
     margin-top: 50px;
