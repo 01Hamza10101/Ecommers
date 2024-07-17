@@ -7,7 +7,7 @@ export let client = null;
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(`${MONGODB_URI}/${DB_NAME}`,);
+    await mongoose.connect(`${MONGODB_URI}/${DB_NAME}`);
   } catch (err) {
     console.error(err.message);
     process.exit(1);

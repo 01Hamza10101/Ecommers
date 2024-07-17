@@ -11,6 +11,7 @@ async function Register(req, res) {
             return res.status(200).json({msg: "User already Registered" });
         }
         const hashedPassword = await bcrypt.hash(req.body.Password, 10);
+        console.log("REGISTERD");
 
         const newUser = new User({
             FirstName: req.body.FirstName,
