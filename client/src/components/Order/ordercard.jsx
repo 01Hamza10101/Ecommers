@@ -119,8 +119,8 @@ function OrderCard({data}) {
                         <div className='status-2'>
                             <div className='status-2-1' style={{marginLeft:Pointer}}>
                             </div>
-                            <h5>{ShowMessage()}</h5>
-                            <h6>{ShowDate()}</h6>
+                            <h5> {ShowMessage()} </h5>
+                            <h6> {ShowDate()} </h6>
                         </div>
                         {/* <div className='_5'>
                             <div>

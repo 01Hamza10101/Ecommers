@@ -31,21 +31,20 @@ const SignupForm = () => {
       )
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if(formdata.confirmpassword == formdata.password){
-      let register = dispatch(RegisterUser({
+      let register = await dispatch(RegisterUser({
           FirstName:formdata.FirstName,
           LastName:formdata.LastName,
           EmailAddress:formdata.email,
           Password:formdata.password,
         }));
-        // if (register.payload.token) {
-        //   navigate('/');
-        //   window.location.reload();
-        // } else {
-        //     console.error('Login failed:', resultAction.payload);
-        // }
+        if (register.payload.msg) {
+          navigate('/login');
+        } else {
+            console.error('Login failed:', resultAction.payload);
+        };
     };
     if(formdata.confirmpassword !== formdata.password){
       alert("Please enter correct password")
@@ -53,10 +52,21 @@ const SignupForm = () => {
     
   };
   
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
   return (
     <form onSubmit={handleSubmit}  className="Signup-form">
         <div className='div-1'>
-            <img src="https://images.unsplash.com/photo-1542662565-7e4b66bae529?q=80&w=1854&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="img" />
+           {windowWidth > 400 && <img src="https://images.unsplash.com/photo-1542662565-7e4b66bae529?q=80&w=1854&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="img" />}
         </div>
         <div className='div-2'>
         <h1>Welcome!</h1>

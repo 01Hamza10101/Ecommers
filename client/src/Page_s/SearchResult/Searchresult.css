@@ -37,7 +37,7 @@
 }
 .search-result .serach-inner button img {
     filter: brightness(0) invert(1);
-    height: 70%;
+    height: 100%;
 }
 .Search-body{
     width: 100%;
@@ -92,4 +92,9 @@
 .search-product-card .rating-colletion .star-rating{
     padding: 0 5px;
     border-right:2px solid white;
+}
+
+.Please-Search{
+    text-align:center;
+    height: 135px;
 }

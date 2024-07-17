@@ -79,7 +79,7 @@
     padding: 0 8px 0 7px;
   }
   .Signup-form .div-2 h1{
-    margin-top: -10px;
+    margin-top: 20px;
   }
   .Signup-form .div-2 .or::after{
     content: "";
@@ -104,4 +104,7 @@
     color: #564f4f;
     box-shadow:2px 1px 3px rgba(180, 177, 177, 0.6);
     cursor: pointer;
+  }
+  .Signup-form{
+    width: 90%;
   }

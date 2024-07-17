@@ -8,6 +8,7 @@ import star from '../Home/star.png';
 import insta from '../Home/instagram.png';
 import linkdin from '../Home/linkdin.png';
 import order from '../Home/shopping-bag.png';
+import remove from './remove.png';
 
 import { Outlet } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
@@ -22,7 +23,8 @@ const Layout = ({seller}) => {
   const [Company,setCompany] = useState(false);
   const [Support,setSupport] = useState(false);
   const [Token,setToken] = useState( null || localStorage.getItem("token"));
-
+  const [MenuShow, setMenuShow] = useState(false);
+  
   const handleNavigate = (data) => {
     const token = localStorage.getItem("token");
     if (token == null) {
@@ -44,6 +46,9 @@ const Layout = ({seller}) => {
             setToken(null);
             navigate("/");
             break;
+        case "HandleMenu":
+          setMenuShow(state => !state);
+          break;
         default:
             navigate("/login");
     }
@@ -54,6 +59,19 @@ const Layout = ({seller}) => {
   // function handleStyleLogoutCursor(){
   //   return Token == null ? "not-allowed" : "";
   // }
+
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
     return (
    <>
    <div className='NavBar'>
@@ -61,10 +79,21 @@ const Layout = ({seller}) => {
       navigate('/')
     }} />
     <div className='div-2'>
-      {!seller && <> <img  className='search-img' src={searchimg} alt="img" onClick={() => {navigate('/searchresult')}}/>
+      {(!seller && windowWidth > 390) && <> <img  className='search-img' src={searchimg} alt="img" onClick={() => {navigate('/searchresult')}}/>
       <img style={{ filter: handleStyleLogout()}} className='cart-img' src={cartimg} alt="img" onClick={() => {handleNavigate("cart");dispatch(GetCartProduct())}}/>
       <img style={{ filter: handleStyleLogout()}} className='profile-img' src={profileimg} alt="img" onClick={() => {handleNavigate("profile")}} />
       <img style={{ filter: handleStyleLogout()}} className='profile-img' src={order} alt="img" onClick={() => {handleNavigate("order")}} />
+      {Token !== null && (<img className='Logout-img' src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/logout-e63ddf.svg" alt="img" onClick={()=>{handleNavigate("logout")}} />)} 
+      </>}
+      {(!seller && windowWidth <= 400) && <> 
+      <img  className='search-img' src={searchimg} alt="img" onClick={() => {navigate('/searchresult')}}/>
+      {MenuShow && <div className='div-mob-menu'>
+          <div onClick={() => {handleNavigate("cart");dispatch(GetCartProduct())}}><span style={{ filter: handleStyleLogout()}}>Cart</span><img style={{ filter: handleStyleLogout()}} className='cart-img' src={cartimg} alt="img" onClick={() => {handleNavigate("cart");dispatch(GetCartProduct())}}/></div>
+          <div onClick={() => {handleNavigate("profile")}}><span style={{ filter: handleStyleLogout()}}>Profile</span><img style={{ filter: handleStyleLogout()}} className='profile-img' src={profileimg} alt="img" onClick={() => {handleNavigate("profile")}} /></div>
+          <div onClick={() => {handleNavigate("order")}}><span style={{ filter: handleStyleLogout()}}>Orders</span> <img style={{ filter: handleStyleLogout()}} className='profile-img' src={order} alt="img" onClick={() => {handleNavigate("order")}} /></div>
+      </div>}
+      {!MenuShow && <img style={{ filter: handleStyleLogout()}} className='profile-img' src={menuimg} alt="img" onClick={() => {handleNavigate("HandleMenu")}} />}
+      {MenuShow && <img style={{ filter: handleStyleLogout()}} className='profile-img' src={remove} alt="img" onClick={() => {handleNavigate("HandleMenu")}} />}
       {Token !== null && (<img className='Logout-img' src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/logout-e63ddf.svg" alt="img" onClick={()=>{handleNavigate("logout")}} />)} 
       </>}
       {seller && <> 

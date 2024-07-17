@@ -13,6 +13,7 @@
 .card .cart-2 h3{
     padding: 0;
     margin: -12px 0 10px 0;
+    overflow: hidden;
 }
 .card .cart-2 h3:hover{
     text-decoration: underline;

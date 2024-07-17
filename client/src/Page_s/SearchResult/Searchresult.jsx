@@ -46,7 +46,7 @@ const SearchResult = () => {
         
       </div>
     </div>
-    {SearchResult.length == 0 && <h4 style={{textAlign:'center',height: "135px"}}>Please search...</h4> }
+    {SearchResult.length == 0 && <h4 className='Please-Search'>Please search...</h4> }
     </>
   );
 }
