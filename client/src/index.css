@@ -92,9 +92,7 @@ html,body{
   .Profile-address input{
     width:46%;
   }
-  /* .order-detls{
-    /* display: flex; */
-  } */
+  
   .order-details div:nth-child(1) img{
     width: 70px;
   }
@@ -161,6 +159,12 @@ html,body{
   .Search-body .search-product-card h2{
     font-size: 18px;
     width: 180px;
+  }
+  .order-details{
+    width: 95%;
+  }
+  .order-details > div:nth-child(2) {
+    margin: 0 7px;
   }
 }
 
